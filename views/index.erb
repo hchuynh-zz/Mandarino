@@ -25,7 +25,26 @@
     <meta property="og:description" content="My First App" />
     <meta property="fb:app_id" content="<%= @app['name'] %>" />
 
+
+     <style>
+      /* Add these styles once per website */
+      .popup_background {
+        z-index: 2000; /* any number */
+      }
+      .popup_wrapper {
+        z-index: 2001; /* any number + 1 */
+      }
+      /* Add inline-block support for IE7 */
+      .popup_align,
+      .popup_content {
+        *display: inline;
+        *zoom: 1;
+      }
+      </style>
+
+
     <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.popup.js"></script>
 
     <script type="text/javascript">
       function logResponse(response) {
@@ -50,7 +69,7 @@
             }
           );
         });
-
+/*
         $('#sendToFriends').click(function() {
           FB.ui(
             {
@@ -65,7 +84,7 @@
             }
           );
         });
-
+*/
         $('#sendRequest').click(function() {
           FB.ui(
             {
@@ -81,6 +100,25 @@
           );
         });
       });
+
+      $(function() {
+        $("#mandarinosubmit").submit(function(e){
+          e.preventDefault();
+
+          $.ajax({
+            type: "POST",
+            url: "/register",
+            data: $("#mandarinosubmit").serialize(),
+            success: function(){
+              $("#message").html("Successfully registered")
+            },
+            error: function(){
+              $("#message").html("Not Successful")
+            }
+          });
+        });
+      });
+
     </script>
 
     <!--[if IE]>
@@ -127,31 +165,35 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
+    <div id="my_modal">
+      <div id="my_message"></div>
+      <button class="my_modal_close">Close</button>
+    </div>
+
     <header class="clearfix">
       <% if @user %>
           <p id="picture" style="background-image: url(https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal)"></p>
           <div>
-            <h1>Welcome, <strong><%= @user['name'] %></strong></h1>
+            <h1>WOW, <strong><%= @user['name'] %></strong></h1>
             <p class="tagline">
-              This is your app
-              <a href="<%= @app['@app'] %>"><%= @app['name'] %></a>
+              siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>?
             </p>
             <div id="share-app">
-              <p>Share your app:</p>
+              <p>Vuoi invitare un tuo amico alla Sfida dei Mandarini</p>
               <ul>
                 <li>
                   <a href="#" class="facebook-button" id="postToWall" data-url="<%= url %>">
                     <span class="plus">Post to Wall</span>
                   </a>
                 </li>
-                <li>
+                <!--li>
                   <a href="#" class="facebook-button speech-bubble" id="sendToFriends" data-url="<%= url %>">
                     <span class="speech-bubble">Send Message</span>
                   </a>
-                </li>
+                </li-->
                 <li>
-                  <a href="#" class="facebook-button apprequests" id="sendRequest" data-message="Test this awesome app">
-                    <span class="apprequests">Send Requests</span>
+                  <a href="#" class="facebook-button apprequests" id="sendRequest" data-message="Sei abbastanza tosto per partecipare alla Sfida dei Mandarini?">
+                    <span class="apprequests">Invia Richiesta</span>
                   </a>
                 </li>
               </ul>
@@ -159,67 +201,35 @@
           </div>
       <% else %>
         <div>
-          <h1>Welcome</h1>
-          <div class="fb-login-button" data-scope="<%= FACEBOOK_SCOPE %>">Log In</div>
+          <h1><span class="hilite">HIIIYAAA!!</span> Vuoi partecipare alla <span class="logo">SFIDA DEI MANDARINI?</span></h1>
+          <div class="fb-login-button" data-scope="<%= FACEBOOK_SCOPE %>">LOGGA CON FACEBOOK</div>
 
         </div>
 
       <% end %>
     </header>
 
-    <section id="get-started">
-      <p>Welcome to your Facebook app, running on <span>heroku</span>!</p>
-      <a href="https://devcenter.heroku.com/articles/facebook?utm_source=facebook&utm_medium=app&utm_campaign=fb_integration" target="_top" class="button">Learn How to Edit This App</a>
-    </section>
 
+      <section id="target" class="clearfix">
+        <div class="number">
+          <h1 id="challengeTarget"><%= @challengeTarget %></h1>
+          <h2 id="challengeDate"><%= @challengeDate %></h2>
+        </div>
+      </section>
 
     <% if @user %>
-    <section id="samples" class="clearfix">
-          <h1>Examples of the Facebook Graph API</h1>
 
+      <section id="mandarinoform" class="clearfix">
+        <form id="theForm">
+          <input type="number" maxlenght="2" maxsize="2" placeholder="1">
+          <input type="hidden" name="id" value="<%= @user['id'] %>" />
+          <input id="submitButton" type="mandarinosubmit" />
+        </form>
+      </section>
+
+      <section id="mandarinofriends" class="clearfix">
           <div class="list">
-            <h3>A few of your friends</h3>
-            <ul class="friends">
-              <% @friends.each do |friend| %>
-                <li>
-                  <a href="#" onclick="window.open('http://www.facebook.com/<%= friend['id']%>')">
-                    <img src="https://graph.facebook.com/<%= friend['id'] %>/picture?type=square" alt="<%= friend['name'] %>">
-                    <%= friend['name'] %>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-
-          <div class="list inline">
-            <h3>Recent photos</h3>
-            <ul class="photos">
-              <% @photos.each_with_index do |photo, index| %>
-                <li style="background-image: url(<%= photo['picture'] %>)" class='<%= 'first-column' if (index%4).zero? %>'>
-                  <a href="#" onclick="window.open('http://www.facebook.com/<%= photo['id'] %>')">
-                    <%= photo['name'] %>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-
-          <div class="list">
-            <h3>Things you like</h3>
-            <ul class="things">
-              <% @likes.each do |like| %>
-                <li>
-                  <a href="#" onclick="window.open('http://www.facebook.com/<%= like['id'] %>')">
-                    <img src="https://graph.facebook.com/<%= like['id'] %>/picture?type=square" alt="<%= like['name'] %>">
-                    <%= like['name'] %>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-
-          <div class="list">
-            <h3>Friends using this app</h3>
+            <h3>I tuoi amici che stanno partecipando alla sfida</h3>
             <ul class="friends">
               <% @friends_using_app.each do |friend_result| %>
                 <li>
