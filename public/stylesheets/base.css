@@ -48,25 +48,6 @@ header h1 {
   padding: 2px 0 8px;
 }
 
-header #picture + div {
-  margin-left: 82px;
-}
-
-header #picture {
-  background-position: center 25%;
-  background-repeat: no-repeat;
-  background-size: 64px;
-  float: left;
-  margin-right: 18px;
-  width: 64px;
-  height: 64px;
-  overflow: hidden;
-}
-
-header .tagline {
-  float: left;
-}
-
 #share-app {
   float: right;
   width: 344px;

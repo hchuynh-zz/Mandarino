@@ -27,14 +27,12 @@
 
 
      <style>
-      /* Add these styles once per website */
       .popup_background {
-        z-index: 2000; /* any number */
+        z-index: 2000; 
       }
       .popup_wrapper {
-        z-index: 2001; /* any number + 1 */
+        z-index: 2001;
       }
-      /* Add inline-block support for IE7 */
       .popup_align,
       .popup_content {
         *display: inline;
@@ -166,7 +164,7 @@
     </script>
 
     <div id="my_modal">
-      <div id="my_message"></div>
+      <div id="message"></div>
       <button class="my_modal_close">Close</button>
     </div>
 
@@ -223,7 +221,7 @@
         <form id="theForm">
           <input type="number" maxlenght="2" maxsize="2" placeholder="1">
           <input type="hidden" name="id" value="<%= @user['id'] %>" />
-          <input id="submitButton" type="mandarinosubmit" />
+          <input id="mandarinosubmit" type="submit" />
         </form>
       </section>
 
