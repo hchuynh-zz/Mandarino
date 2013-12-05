@@ -170,7 +170,7 @@
 
     <header class="clearfix">
       <% if @user %>
-          <p id="picture" style="background-image: url(https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal)"></p>
+          <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal)">
           <div>
             <h1>WOW, <strong><%= @user['name'] %></strong></h1>
             <p class="tagline">
