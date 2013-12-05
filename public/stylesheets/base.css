@@ -9,7 +9,6 @@ body {
   color: #999;
   font: 14px/1.5em "Lucida Grande", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  width: 720px;
   margin: 20px;
 }
 
@@ -44,6 +43,17 @@ header h1 {
   padding: 2px 0 8px;
 }
 
+.tagline{
+  float: left;
+}
+
+#picture{
+  float: left;
+}
+
+#profile{
+  margin: 0 120px;
+}
 #share-app {
   float: right;
   width: 344px;

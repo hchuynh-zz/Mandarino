@@ -170,17 +170,17 @@
     <header class="clearfix">
       <% if @user %>
           <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal" />
-          <div>
+          <div id="profile">
             <h1>WOW, <strong><%= @user['name'] %></strong></h1>
             <p class="tagline">
               siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>?
             </p>
             <div id="share-app">
-              <p>Vuoi invitare un tuo amico alla Sfida dei Mandarini</p>
+              <p>Invita un tuo amico alla Sfida dei Mandarini</p>
               <ul>
                 <li>
                   <a href="#" class="facebook-button" id="postToWall" data-url="<%= url %>">
-                    <span class="plus">Post to Wall</span>
+                    <span class="plus">Scrivi sul tuo Wall</span>
                   </a>
                 </li>
                 <!--li>
@@ -190,7 +190,7 @@
                 </li-->
                 <li>
                   <a href="#" class="facebook-button apprequests" id="sendRequest" data-message="Sei abbastanza tosto per partecipare alla Sfida dei Mandarini?">
-                    <span class="apprequests">Invia Richiesta</span>
+                    <span class="apprequests">Invita un Amico</span>
                   </a>
                 </li>
               </ul>
