@@ -158,7 +158,6 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
@@ -170,7 +169,7 @@
 
     <header class="clearfix">
       <% if @user %>
-          <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal)">
+          <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal" />
           <div>
             <h1>WOW, <strong><%= @user['name'] %></strong></h1>
             <p class="tagline">
