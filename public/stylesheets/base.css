@@ -54,6 +54,14 @@ header h1 {
 #profile{
   margin: 0 120px;
 }
+
+#howmany{
+  width: 130px;
+  height: 100px;
+  font-size: 60pt;
+  text-align: right;
+}
+
 #share-app {
   float: right;
   width: 344px;
