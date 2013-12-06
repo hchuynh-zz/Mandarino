@@ -110,6 +110,7 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
@@ -131,7 +132,7 @@
         <p>Tutti possono partecipare liberamente e il numero dei mandarini mangiati viene calcolato basandosi unicamente sull'onesta dei partecipanti</p>
         <hr>
         <p>Quest'anno il target da raggiungere è:</p>
-        <h1><strong class="big">275</strong> #mandarini !</h1>
+        <h1><strong>275</strong> #mandarini !</h1>
       </div>
       <button id="rules_close" class="basic_close btn btn-default">Chiudi</button>
     </div>

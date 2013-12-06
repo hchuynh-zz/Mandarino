@@ -84,7 +84,13 @@ header {
   border: 1px solid #DDD;
   padding: 20px;
   border-radius: 20px;
-  margin-bottom: 10px 0; }
+  margin-bottom: 10px; }
+
+#mandarinofriends {
+  font-size: 14pt;
+  font-weight: bold; }
+  #mandarinofriends p {
+    margin: 0; }
 
 #message {
   font-weight: bold;
