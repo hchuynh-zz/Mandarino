@@ -79,7 +79,7 @@
     </script>
 
     <div id="my_modal">
-      <div id="message"></div>
+      <div id="alert"></div>
       <button class="my_modal_close">Close</button>
     </div>
 
@@ -101,11 +101,6 @@
                     <span class="plus">Scrivi sul tuo Wall</span>
                   </a>
                 </li>
-                <!--li>
-                  <a href="#" class="facebook-button speech-bubble" id="sendToFriends" data-url="<%= url %>">
-                    <span class="speech-bubble">Send Message</span>
-                  </a>
-                </li-->
                 <li>
                   <a href="#" class="facebook-button apprequests" id="sendRequest" data-message="Sei abbastanza tosto per partecipare alla Sfida dei Mandarini?">
                     <span class="apprequests">Invita un Amico</span>
@@ -135,7 +130,7 @@
     <% if @user %>
 
       <section id="mandarinoform" class="clearfix">
-        <h1><span class="hilite">HIIIYAAA!!</span> Vuoi partecipare alla <span class="logo">SFIDA DEI MANDARINI?</span></h1>
+        <div id="message"><%= theMessage %></div>
         <form id="theForm">
           <input type="number" name="howmany" id="howmany" maxlenght="2" maxsize="2" min="0" placeholder="1">
           <input type="hidden" name="who" value="<%= @user['id'] %>" />
