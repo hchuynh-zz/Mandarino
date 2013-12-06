@@ -89,13 +89,13 @@
             data: $("#theForm").serialize(),
             success: function(data){
               $("#alert").html(data);
-              $('#my_popup').popup();
+              $('#my_popup').removeClass("hidden").popup();
               console.log(data);
             },
             error: function(data){
               $("#alert").html(data)
-              $('#my_popup').popup();
-                            console.log(data);
+              $('#my_popup').removeClass("hidden").popup();
+              console.log(data);
 
             }
           });

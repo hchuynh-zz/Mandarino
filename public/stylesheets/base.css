@@ -48,10 +48,9 @@ h1 {
 
 .well {
   width: 400px; }
-
-#rules h1 {
-  font-size: 40px;
-  text-align: center; }
+  .well h1 {
+    font-size: 40px;
+    text-align: center; }
 
 header {
   padding: 24px 18px; }
