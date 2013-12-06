@@ -171,11 +171,13 @@
       <% if @user %>
           <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal" />
           <div id="profile">
+            <div class="left">
             <h1>WOW, <strong><%= @user['name'] %></strong></h1>
             <p class="tagline">
               siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>?
             </p>
-            <div id="share-app">
+          </div>
+          <div id="share-app">
               <p>Invita un tuo amico alla Sfida dei Mandarini</p>
               <ul>
                 <li>

@@ -154,7 +154,7 @@ header h1 {
 
 /* ------------------------------------------ */
 
-/* =clearfix
+/* =Hacks
 --------------------------------------------- */
 .clearfix:after {
   clear: both;
@@ -168,4 +168,12 @@ header h1 {
 
 .clearfix {
   zoom: 1;
+}
+
+.left{
+  float:left;
+}
+
+.right{
+  float:right;
 }
