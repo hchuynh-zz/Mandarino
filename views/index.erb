@@ -33,7 +33,7 @@
     
     
     <script type="text/javascript">
-      $(function()){
+      $(function(){
           $('#postToWall').click(function() {
           FB.ui(
             {
@@ -124,6 +124,15 @@
       <button class="basic_close btn btn-default">Close</button>
     </div>
 
+    <div id="rules" class="hidden">
+      <div id="rulescontent">
+        <h4>Regole</h4>
+        <p>Ogni anno viene 
+        </p>
+      </div>
+      <button class="basic_close btn btn-default">Close</button>
+    </div>
+
     <header class="clearfix">
       <% if @user %>
           <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal" />
@@ -135,7 +144,7 @@
             </p>
           </div>
           <div id="share">
-              <p>Invita un tuo amico alla Sfida dei Mandarini</p>
+              <p>Invita un tuo amico alla <a id="actionrules" href="#">Sfida dei Mandarini</a></p>
               <ul>
                 <li>
                   <a href="#" class="facebook-button" id="postToWall" data-url="<%= url %>">

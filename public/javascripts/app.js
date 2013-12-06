@@ -11,9 +11,13 @@
             $("#alert").html("<h4>"+title+"</h4>"+"<p>"+text+"</p>");
             $('#my_popup').removeClass("hidden").popup("show");
           },
+          openrules: function(){
+            $('#rules').removeClass("hidden").popup("show");
+          },
           init: function(){
             $('#my_popup').popup();
-            $('#my_popup_closing').click(function(){
+            $('#rules').popup();
+            $('.basic_close').click(function(){
               $('#my_popup').toggle();
             })
           }
@@ -54,6 +58,6 @@
 */
         });
 
-
+        $("#actionrules").click(function(){ popup.openrules();});
       });
       
