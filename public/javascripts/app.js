@@ -20,22 +20,7 @@
             }
           );
         });
-/*
-        $('#sendToFriends').click(function() {
-          FB.ui(
-            {
-              method : 'send',
-              link   : $(this).attr('data-url')
-            },
-            function (response) {
-              // If response is null the user canceled the dialog
-              if (response != null) {
-                logResponse(response);
-              }
-            }
-          );
-        });
-*/
+
         $('#sendRequest').click(function() {
           FB.ui(
             {
@@ -55,7 +40,7 @@
 
       $(function() {
 
-        $("#theInput").keypress(function(e){
+        $("#howmany").keypress(function(e){
             var theEvent = e || window.event;
             var key = theEvent.keyCode || theEvent.which;
             key = String.fromCharCode( key );

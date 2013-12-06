@@ -90,10 +90,10 @@
             <div class="left">
             <h1>WOW, <strong><%= @user['name'] %></strong></h1>
             <p class="tagline">
-              siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>?
+              Siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>!
             </p>
           </div>
-          <div id="share-app">
+          <div id="share">
               <p>Invita un tuo amico alla Sfida dei Mandarini</p>
               <ul>
                 <li>
@@ -135,8 +135,9 @@
     <% if @user %>
 
       <section id="mandarinoform" class="clearfix">
+        <h1><span class="hilite">HIIIYAAA!!</span> Vuoi partecipare alla <span class="logo">SFIDA DEI MANDARINI?</span></h1>
         <form id="theForm">
-          <input type="number" name="howMany" id="theInput" maxlenght="2" maxsize="2" placeholder="1">
+          <input type="number" name="howmany" id="howmany" maxlenght="2" maxsize="2" min="0" placeholder="1">
           <input type="hidden" name="who" value="<%= @user['id'] %>" />
           <input id="mandarinosubmit" type="submit" />
         </form>

@@ -4,7 +4,7 @@
 $mainColor:         #A00;
 $secondaryColor:    #0A0;
 $tertiaryColor:     #00A;
-$hiliteColor:     #FAA;
+$hiliteColor:       #FAA;
 
 $textColor:         #999;
 $textSubtleColor:   #AAA;
@@ -16,8 +16,9 @@ $fontPrimary:   14px/1.5em "Lucida Grande", Arial, sans-serif;
 $fontSecondary: "Helvetica Neue", Arial, sans-serif;
 
 body {
-  color: $backgroundColor;
-  font: $fontPrimary;
+  background:   $backgroundColor;
+  color:        $textColor;
+  font:         $fontPrimary;
   -webkit-font-smoothing: antialiased;
   margin: 20px;
 }
@@ -53,6 +54,10 @@ h1 {
 //
 // Styleguide 1.0
 
+#my_modal{
+  display:none;
+}
+
 
 header {
   padding: 24px 18px;
@@ -65,14 +70,6 @@ header {
 }
 
 
-#my_modal{
-  display:none;
-}
-
-.tagline{
-  float: left;
-}
-
 #picture{
   float: left;
 }
@@ -81,27 +78,34 @@ header {
   margin: 0 120px;
 }
 
-#howMany{
+#share {
+  float: right;
+  width: 300px;
+    p{
+      text-align: right;
+    }
+    ul {
+    float: right;
+    li {
+      float: left;
+      list-style: none;
+      margin-left: 8px;
+    }
+  }
+}
+
+#mandarinoform{
+  text-align: center;
+}
+
+#howmany{
   width: 130px;
   height: 100px;
   font-size: 60pt;
   text-align: right;
 }
 
-#share-app {
-  float: right;
-  width: 344px;
-}
 
-#share-app ul {
-  float: right;
-}
-
-#share-app li {
-  float: left;
-  list-style: none;
-  margin-left: 8px;
-}
 /* ------------------------------------------ */
 
 /* =buttons
@@ -173,10 +177,10 @@ header {
 }
 
 
-/* ------------------------------------------ */
+// Hacks
+//
+// Styleguide 1.0
 
-/* =Hacks
---------------------------------------------- */
 .clearfix:after {
   clear: both;
   content: ".";
