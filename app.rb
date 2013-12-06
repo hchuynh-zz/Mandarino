@@ -2,7 +2,7 @@ require "sinatra"
 require 'koala'
 require 'sinatra/activerecord'
 require './config/environments' #database configuration
-require './models/timeTable'
+require './models/timetable'
 require './models/ladder'
 
 enable :sessions
