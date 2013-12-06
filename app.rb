@@ -179,7 +179,7 @@ post '/more' do
   userId = params[:who]
 
 
-  if howmany > 0
+  if howmany.to_i > 0
     @total = howmany
     #mandarino = MandarinoTimeTable.get(:userId => userId, :day => Time.now.day, :year => Time.now.year )
 
