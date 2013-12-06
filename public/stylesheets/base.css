@@ -1,12 +1,35 @@
 body {
   background-color: white;
-  background-image: url("/images/mandarino_bg.jpg");
-  background-position: right bottom;
-  background-repeat: no-repeat;
   color: #999999;
   font: 14px/1.5em "Lucida Grande", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   margin: 20px; }
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  webkit-user-select: none;
+  moz-user-select: none;
+  user-select: none; }
+
+@media screen and (max-width: 1024px) {
+  /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;
+    /* 50% */ } }
+.bg2 {
+  background-image: url("/images/mandarino_bg.jpg");
+  background-position: right bottom;
+  background-repeat: no-repeat; }
 
 a {
   color: #ff6600; }
