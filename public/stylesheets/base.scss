@@ -1,7 +1,7 @@
 // Color Variables
 //
 // Styleguide 1.0
-$mainColor:         #A60;
+$mainColor:         #F60;
 $secondaryColor:    #0A0;
 $tertiaryColor:     #00A;
 $hiliteColor:       #FAA;
@@ -118,8 +118,8 @@ header {
   &:link, &.facebook-button:visited {
     background-color:   $mainColor;
     color:              $backgroundColor;
-    border: 1px solid #a9a9a9;
-    line-height: 20px;
+    padding: 10px;
+    line-height: 40px;
     margin: 0;
     outline: none;
     text-decoration: none;
