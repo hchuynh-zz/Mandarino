@@ -70,12 +70,10 @@
             key = String.fromCharCode( key );
             var regex = /[0-9]|\./;
             if( !regex.test(key) ) {
-              if(theEvent.preventDefault) theEvent.preventDefault();
-            }else{
               if (key == 13) {
-                theEvent.preventDefault();
                 $("#theForm").submit();
               }
+              if(theEvent.preventDefault) theEvent.preventDefault();
             }
 
         }).focus(function(){
@@ -103,6 +101,44 @@
           });
 */
         });
+
+
+
+$('#postToWall').click(function() {
+          FB.ui(
+            {
+              method : 'feed',
+              //link   : $(this).attr('data-url')
+
+              name: 'La Sfida dei Mandarini',
+              link: 'https://apps.facebook.com/mandarino',
+              picture: 'https://fbcdn-photos-d-a.akamaihd.net/hphotos-ak-prn1/851585_240963019398792_637601424_n.png',
+              description: 'Oggi ho mangiato '+stats.getToday()+' #mandarini e per arrivare a '+stats.getGoal()+' il 31 Dicembre, '+stats.getLeft()+'.'
+            },
+            function (response) {
+              // If response is null the user canceled the dialog
+              if (response != null) {
+                logResponse(response);
+              }
+            }
+          );
+        });
+
+        $('.apprequests').click(function() {
+          FB.ui(
+            {
+              method  : 'apprequests',
+              message : $(this).attr('data-message')
+            },
+            function (response) {
+              // If response is null the user canceled the dialog
+              if (response != null) {
+                logResponse(response);
+              }
+            }
+          );
+        });
+        
 
         $("#actionrules").click(function(){ popup.openrules();});
 
