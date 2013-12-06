@@ -61,7 +61,7 @@ header {
 
 #share {
   float: right;
-  width: 300px; }
+  width: 360px; }
   #share p {
     text-align: right; }
   #share ul {
@@ -72,13 +72,16 @@ header {
       margin-left: 8px; }
 
 #mandarinoform {
-  text-align: center; }
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #DDD;
+  padding: 20px;
+  border-radius: 20px; }
 
 #message {
-  color: #ff6600;
   font-weight: bold;
-  font-size: 60pt;
-  line-height: 100pt;
+  font-size: 20pt;
+  line-height: 30pt;
   text-align: center; }
 
 #submessage {
