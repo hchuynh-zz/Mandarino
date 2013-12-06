@@ -136,6 +136,9 @@ header {
   margin: 5px 0;
   width: 100%; }
 
+.fb-login-button {
+  margin: 30px 0; }
+
 .clearfix:after {
   clear: both;
   content: ".";
