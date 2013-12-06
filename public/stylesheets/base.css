@@ -6,7 +6,7 @@ body {
   margin: 20px; }
 
 a {
-  color: #aabb00; }
+  color: #aa6600; }
   a:link, a:visited {
     font-weight: bold;
     text-decoration: none; }
@@ -15,7 +15,7 @@ a {
     text-decoration: underline; }
 
 h1 {
-  color: #aabb00;
+  color: #aa6600;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
   font-weight: normal; }
@@ -48,6 +48,12 @@ header {
 #mandarinoform {
   text-align: center; }
 
+#message {
+  color: #aa6600;
+  font-weight: bold;
+  font-size: 100pt;
+  text-align: center; }
+
 #howmany {
   width: 130px;
   height: 100px;
@@ -55,7 +61,7 @@ header {
   text-align: right; }
 
 .facebook-button:link, .facebook-button.facebook-button:visited {
-  background-color: #aabb00;
+  background-color: #aa6600;
   color: white;
   border: 1px solid #a9a9a9;
   line-height: 20px;
@@ -84,4 +90,4 @@ header {
   float: right; }
 
 .hidden {
-  display: hidden; }
+  display: none; }

@@ -123,3 +123,8 @@ get '/auth/facebook/callback' do
   session[:access_token] = authenticator.get_access_token(params[:code])
   redirect '/'
 end
+
+# HH
+post "/more" do
+  redirect "/"
+end

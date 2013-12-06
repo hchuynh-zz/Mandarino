@@ -49,10 +49,12 @@
 
         $("#mandarinosubmit").submit(function(e){
           e.preventDefault();
-
+          $("#message").html("Not Successful")
+              $('#my_popup').popup();
+/*
           $.ajax({
             type: "POST",
-            url: "/register",
+            url: "/more",
             data: $("#mandarinosubmit").serialize(),
             success: function(){
               $("#alert").html("Successfully registered");
@@ -63,7 +65,7 @@
               $('#my_popup').popup();
             }
           });
+*/
         });
-
       });
       

@@ -1,7 +1,7 @@
 // Color Variables
 //
 // Styleguide 1.0
-$mainColor:         #AB0;
+$mainColor:         #A60;
 $secondaryColor:    #0A0;
 $tertiaryColor:     #00A;
 $hiliteColor:       #FAA;
@@ -94,6 +94,13 @@ header {
   text-align: center;
 }
 
+#message{
+  color: $mainColor;
+  font-weight: bold;
+  font-size: 100pt;
+  text-align: center;
+}
+
 #howmany{
   width: 130px;
   height: 100px;
@@ -150,5 +157,5 @@ header {
 }
 
 .hidden{
-  display:hidden;
+  display:none;
 }
