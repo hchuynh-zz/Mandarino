@@ -69,6 +69,7 @@
             var key = theEvent.keyCode || theEvent.which;
             key = String.fromCharCode( key );
             var regex = /[0-9]|\./;
+             console.log(key);
             if (key == 13) {
                 $("#theForm").submit();
             }
@@ -89,12 +90,12 @@
             data: $("#theForm").serialize(),
             success: function(data){
               $("#alert").html(data);
-              $('#my_popup').removeClass("hidden").popup();
+              $('#my_popup').removeClass("hidden").popup("show");
               console.log(data);
             },
             error: function(data){
               $("#alert").html(data)
-              $('#my_popup').removeClass("hidden").popup();
+              $('#my_popup').removeClass("hidden").popup("show");
               console.log(data);
 
             }
