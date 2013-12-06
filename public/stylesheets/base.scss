@@ -6,13 +6,13 @@ $secondaryColor:    #0A0;
 $tertiaryColor:     #00A;
 $hiliteColor:       #FAA;
 
-$textColor:         #999;
+$textColor:         #888;
 $textSubtleColor:   #AAA;
 
 $backgroundColor:   #FFF;
 $subtleBackground:  #EEE;
 
-$fontPrimary:   14px/1.5em "Lucida Grande", Arial, sans-serif; 
+$fontPrimary:   "Lucida Grande", Arial, sans-serif; 
 $fontSecondary: "Helvetica Neue", Arial, sans-serif;
 
 body {
@@ -129,7 +129,8 @@ header {
 #message{
   color: $mainColor;
   font-weight: bold;
-  font-size: 100pt;
+  font-size: 60pt;
+  line-height: 100pt;
   text-align: center;
 }
 
@@ -140,6 +141,13 @@ header {
   text-align: right;
 }
 
+#mandarinosubmit{
+  background: $mainColor;
+  border: none;
+  margin: 10px;
+  padding: 10px 20px;
+  color: $backgroundColor;
+}
 
 // Buttons
 //
