@@ -1,5 +1,6 @@
 require "sinatra"
 require 'koala'
+require 'sequel'
 
 #require './config/environments' #database configuration
 require './models/timetable'
@@ -11,7 +12,7 @@ set :show_exceptions, false
 
 
 configure do
-        DB = Sequel.connect( ENV["DATABASE_URL"] )
+  DB = Sequel.connect( ENV["DATABASE_URL"] )
 end
 
 # Scope defines what permissions that we are asking the user to grant.
