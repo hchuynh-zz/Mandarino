@@ -174,7 +174,7 @@ get '/auth/facebook/callback' do
 end
 
 # HH
-get '/more' do
+post '/more' do
   howmany = params[:howmany]
   userId = params[:who]
 
