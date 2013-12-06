@@ -58,6 +58,14 @@ helpers do
     session[:access_token] || access_token_from_cookie
   end
 
+  # HH
+
+  def getMandarini
+  end
+
+  def writeMandarini(id, day, howmany = 0)
+  end
+  
 end
 
 # the facebook session expired! reset ours and restart the process

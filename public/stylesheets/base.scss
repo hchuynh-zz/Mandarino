@@ -43,6 +43,10 @@ header h1 {
   padding: 2px 0 8px;
 }
 
+#my_modal{
+  display:none;
+}
+
 .tagline{
   float: left;
 }
@@ -69,11 +73,6 @@ header h1 {
 
 #share-app ul {
   float: right;
-}
-
-#share-app p {
-  float: left;
-  margin-left: 8px;
 }
 
 #share-app li {

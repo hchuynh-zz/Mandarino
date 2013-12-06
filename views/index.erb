@@ -99,7 +99,20 @@
         });
       });
 
+
       $(function() {
+
+        $("#theInput").keypress(function(e){
+            var theEvent = e || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode( key );
+            var regex = /[0-9]|\./;
+            if( !regex.test(key) ) {
+              theEvent.returnValue = false;
+              if(theEvent.preventDefault) theEvent.preventDefault();
+            }
+        });
+
         $("#mandarinosubmit").submit(function(e){
           e.preventDefault();
 
@@ -220,7 +233,7 @@
 
       <section id="mandarinoform" class="clearfix">
         <form id="theForm">
-          <input type="number" name="howmany" maxlenght="2" maxsize="2" placeholder="1">
+          <input type="number" name="howMany" id="theInput" maxlenght="2" maxsize="2" placeholder="1">
           <input type="hidden" name="who" value="<%= @user['id'] %>" />
           <input id="mandarinosubmit" type="submit" />
         </form>
