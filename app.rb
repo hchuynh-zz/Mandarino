@@ -1,14 +1,17 @@
 require "sinatra"
 require 'koala'
 
-require './config/environments' #database configuration
-require './models/timetable'
-require './models/ladder'
+#require './config/environments' #database configuration
+require './models'
 
 enable :sessions
 set :raise_errors, false
 set :show_exceptions, false
 
+
+configure do
+  DB = Sequel.connect( ENV["DATABASE_URL"] )
+end
 
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
