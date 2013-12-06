@@ -30,27 +30,27 @@
         var stats = {
           getGoal: function(){
             var goal = 0;
-            var val = $("#stats_goal").value();
+            var val = $("#stats_goal").val();
             if (val && val > 0) goal = val;
             return goal;
           },
           getToday: function(){
             var today = 0;
-            var val = $("#stats_today").value();
+            var val = $("#stats_today").val();
             if (val && val > 0) today = val;
             return today;
           },
           getTotal: function(){
             var total = 0;
-            var val = $("#stats_total").value();
+            var val = $("#stats_total").val();
             if (val && val > 0) total = val;
             return total;
           },
           getLeft: function(){
 
             var left = "penso che moriro'" ;
-            var val1 = $("#stats_goal").value();
-            var val2 = $("#stats_total").value();
+            var val1 = $("#stats_goal").val();
+            var val2 = $("#stats_total").val();
             if (val1 && val2){
               if ( (val1 - val2) >0) left = "me ne mancano ancora "+ (val1 - val2);
             }else{
@@ -138,7 +138,7 @@ $('#postToWall').click(function() {
             }
           );
         });
-        
+
 
         $("#actionrules").click(function(){ popup.openrules();});
 
