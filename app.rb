@@ -65,7 +65,8 @@ helpers do
     s["goal"] = 275
     s["today"] = 5
     s["total"] = 10
-    s["message"] = 'DAJE!'
+    s["plus"] = -5
+    s["message"] = 'Mancano pochi giorni al 31 Dicembre e sei a '+s["plus"]+' rispetto alla timetable!'
     return s
   end
 

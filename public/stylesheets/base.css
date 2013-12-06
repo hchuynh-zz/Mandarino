@@ -137,9 +137,6 @@ header {
   margin: 5px 0;
   width: 100%; }
 
-.facebook-button:visited {
-  background-color: #00aa00; }
-
 .clearfix:after {
   clear: both;
   content: ".";

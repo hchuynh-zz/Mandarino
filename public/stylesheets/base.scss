@@ -209,9 +209,6 @@ header {
   &:link, &.facebook-button:visited {
     @extend .basebutton;
   }
-  &:visited{
-    background-color:   $secondaryColor;
-  }
 }
 
 

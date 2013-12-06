@@ -28,25 +28,25 @@
         }
         
         var stats = {
-          getGoal = function(){
+          getGoal: function(){
             var goal = 0;
             var val = $("#stats_goal").value();
             if (val && val > 0) goal = val;
             return goal;
           },
-          getToday = function(){
+          getToday: function(){
             var today = 0;
             var val = $("#stats_today").value();
             if (val && val > 0) today = val;
             return today;
           },
-          getTotal = function(){
+          getTotal: function(){
             var total = 0;
             var val = $("#stats_total").value();
             if (val && val > 0) total = val;
             return total;
           },
-          getLeft = function(){
+          getLeft: function(){
 
             var left = "penso che moriro'" ;
             var val1 = $("#stats_goal").value();
