@@ -6,8 +6,20 @@
 
       $( document ).ready(function(){
 
-        $('#my_popup').popup();
-
+        var popup = {
+          open: function(title,text){
+            $("#alert").html("<h4>"+title+"</h4>"+"<p>"+text"</p>")
+            $('#my_popup').removeClass("hidden").popup("show");
+          },
+          init: function(){
+            $('#my_popup').popup();
+            $('#my_popup_closing').click(function(){
+              $('#my_popup').toggle();
+            })
+          }
+        }
+        
+        popup.init();
 
         $('#postToWall').click(function() {
           FB.ui(
@@ -51,8 +63,7 @@
 
         $("#theForm").submit(function(e){
           e.preventDefault();
-          $("#message").html("Not Successful")
-          $('#my_popup').popup("show");
+          popup.open("Yeay", "Test");
 
           return false;
 /*
@@ -71,5 +82,7 @@
           });
 */
         });
+
+
       });
       
