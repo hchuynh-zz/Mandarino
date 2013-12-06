@@ -130,7 +130,7 @@
     <% if @user %>
 
       <section id="mandarinoform" class="clearfix">
-        <div id="message"><%= theMessage %></div>
+        <div id="message"><%= @message %></div>
         <form id="theForm">
           <input type="number" name="howmany" id="howmany" maxlenght="2" maxsize="2" min="0" placeholder="1">
           <input type="hidden" name="who" value="<%= @user['id'] %>" />
