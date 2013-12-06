@@ -8,7 +8,7 @@
 
         var popup = {
           open: function(title,text){
-            $("#alert").html("<h4>"+title+"</h4>"+"<p>"+text"</p>");
+            $("#alert").html("<h4>"+title+"</h4>"+"<p>"+text+"</p>");
             $('#my_popup').removeClass("hidden").popup("show");
           },
           init: function(){
