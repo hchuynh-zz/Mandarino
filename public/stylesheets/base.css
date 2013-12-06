@@ -32,6 +32,10 @@ header {
 
 #profile {
   margin: 0 120px; }
+  #profile h2 {
+    margin-top: 0; }
+    #profile h2 strong {
+      color: #ff6600; }
 
 #share {
   float: right;

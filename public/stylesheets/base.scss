@@ -72,6 +72,12 @@ header {
 
 #profile{
   margin: 0 120px;
+  h2{
+    margin-top: 0;
+    strong{
+      color: $mainColor;
+    }
+  }
 }
 
 #share {

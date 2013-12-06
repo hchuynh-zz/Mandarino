@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
 
     <title><%= @app['name'] %></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />
     <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-width: 480px), only screen and (max-device-width: 480px)" type="text/css" />
 
@@ -25,20 +26,11 @@
     <meta property="og:description" content="My First App" />
     <meta property="fb:app_id" content="<%= @app['name'] %>" />
     
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+   
 
     <script src="/javascripts/jquery-1.8.2.min.js"></script>
     <script src="/javascripts/jquery.popup.js"></script>
-
-    <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://weloveiconfonts.com/api/?family=fontawesome">
-    <style>
-        [class*="fontawesome-"]:before {
-          font-family: 'FontAwesome', sans-serif;
-        }
-    </style>
-
-    <!-- jQuery -->
+    
     <style type="text/css"></style>
 
     <!--[if IE]>
@@ -96,7 +88,7 @@
           <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal" />
           <div id="profile">
             <div class="left">
-            <h1>WOW, <strong><%= @user['name'] %></strong></h1>
+            <h2>WOW, <strong><%= @user['name'] %></strong></h2>
             <p class="tagline">
               Siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>!
             </p>

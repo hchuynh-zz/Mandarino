@@ -6,6 +6,9 @@
 
       $( document ).ready(function(){
 
+        $('#my_popup').popup();
+
+
         $('#postToWall').click(function() {
           FB.ui(
             {
@@ -42,15 +45,16 @@
             key = String.fromCharCode( key );
             var regex = /[0-9]|\./;
             if( !regex.test(key) ) {
-              theEvent.returnValue = false;
               if(theEvent.preventDefault) theEvent.preventDefault();
             }
         });
 
-        $("#mandarinosubmit").submit(function(e){
+        $("#theForm").submit(function(e){
           e.preventDefault();
           $("#message").html("Not Successful")
-              $('#my_popup').popup();
+          $('#my_popup').popup("show");
+
+          return false;
 /*
           $.ajax({
             type: "POST",
