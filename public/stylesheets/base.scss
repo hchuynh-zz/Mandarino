@@ -16,11 +16,15 @@ $fontPrimary:   14px/1.5em "Lucida Grande", Arial, sans-serif;
 $fontSecondary: "Helvetica Neue", Arial, sans-serif;
 
 body {
-  background:   $backgroundColor;
-  color:        $textColor;
-  font:         $fontPrimary;
+  background-color:   $backgroundColor;
+  background-image:   url("/images/mandarino_bg.jpg");
+  background-position: right bottom;
+  background-repeat:   no-repeat;
+  color:              $textColor;
+  font:               $fontPrimary;
   -webkit-font-smoothing: antialiased;
   margin: 20px;
+
 }
 
 // Links
