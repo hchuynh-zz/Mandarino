@@ -18,10 +18,10 @@
             $('#my_popup').popup();
             $('#rules').popup();
             $('#my_popup_close').click(function(){
-              $('#my_popup').toggle();
+              $('#my_popup').popup("hide");
             });
             $('#rules_close').click(function(){
-              $('#rules').toggle();
+              $('#rules').popup("hide");
             });
           }
         }

@@ -42,6 +42,13 @@ h1 {
   font-size: 18px;
   font-weight: normal; }
 
+.big {
+  font-size: 13pt;
+  color: #ff6600; }
+
+.well {
+  width: 400px; }
+
 header {
   padding: 24px 18px; }
   header h1 {
@@ -71,12 +78,13 @@ header {
       list-style: none;
       margin-left: 8px; }
 
-#mandarinoform {
+#mandarinoform, #mandarinofriends {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid #DDD;
   padding: 20px;
-  border-radius: 20px; }
+  border-radius: 20px;
+  margin-bottom: 10px 0; }
 
 #message {
   font-weight: bold;

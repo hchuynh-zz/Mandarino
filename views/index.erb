@@ -127,8 +127,11 @@
     <div id="rules" class="well hidden">
       <div id="rulescontent">
         <h4>Regole</h4>
-        <p>Ogni anno viene scelto un target di mandarini da consumare al <strong>31 Dicembre</strong></p>
-        <p>Quest'anno il target da raggiungere è <span class="big">275</span> #mandarini !</p>
+        <p>Ogni anno viene scelto un target di mandarini da consumare al <strong class="big">31 Dicembre</strong></p>
+        <p>Tutti possono partecipare liberamente e il numero dei mandarini mangiati viene calcolato basandosi unicamente sull'onesta dei partecipanti</p>
+        <hr>
+        <p>Quest'anno il target da raggiungere è:</p>
+        <h1><strong class="big">275</strong> #mandarini !</h1>
       </div>
       <button id="rules_close" class="basic_close btn btn-default">Chiudi</button>
     </div>
@@ -191,7 +194,7 @@
 
       <section id="mandarinofriends" class="clearfix">
           <% if @friends_using_app.to_a.empty? %>
-            <h2>Nessuno dei tuo amici partecipa alla sfida, perchè non ne <a href="#" class="apprequests">inviti uno</a>?</h2>
+            <p>Nessuno dei tuo amici partecipa alla sfida, perchè non ne <a href="#" class="apprequests">inviti uno</a>?</p>
           <% else %>
             <div class="list">
               <h3>I tuoi amici che stanno partecipando alla sfida</h3>
