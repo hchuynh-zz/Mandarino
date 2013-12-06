@@ -180,7 +180,8 @@ post '/more' do
 
 
   if howmany.to_i > 0
-    @total = howmany
+    @today = howmany
+    @total = 40
     #mandarino = MandarinoTimeTable.get(:userId => userId, :day => Time.now.day, :year => Time.now.year )
 
     erb :response
