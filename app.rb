@@ -61,8 +61,8 @@ helpers do
   # HH
 
   def getMandarini
-    message = "DAJE!"
-    return message
+    @message = "DAJE!"
+    return @message
   end
 
   def writeMandarini(id, day, howmany = 0)
