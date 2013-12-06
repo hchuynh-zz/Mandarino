@@ -1,6 +1,9 @@
 require "sinatra"
 require 'koala'
-
+require 'sinatra/activerecord'
+require './config/environments' #database configuration
+require './models/MandarinoTimeTable'
+require './models/Ladder'
 
 enable :sessions
 set :raise_errors, false
@@ -180,11 +183,15 @@ post '/more' do
 
 
   if howmany.to_i > 0
-    @today = howmany
-    @total = 40
+    today = howmany
+    total = 40
     #mandarino = MandarinoTimeTable.get(:userId => userId, :day => Time.now.day, :year => Time.now.year )
-
-    erb :response
+    timetable = Timetable.new(:userId => userId, :day => Time.now.day, :year => Time.now.year, :today => today)
+      if timetable.save
+        erb :response
+      else
+      erb :error
+      end
   else
     erb :error
   end

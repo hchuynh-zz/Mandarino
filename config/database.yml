@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: de977o0trtuuu8
+  username: gxtdqrmdwmtzdw
+  password: fnstoD9k50gKHe-RkNBM2p3rXK
+  host: ec2-174-129-21-42.compute-1.amazonaws.com
