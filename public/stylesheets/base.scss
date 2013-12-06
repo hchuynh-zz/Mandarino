@@ -36,6 +36,7 @@ img.bg {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: -10;
   webkit-user-select: none;
   moz-user-select: none;
   user-select: none;
@@ -48,11 +49,6 @@ img.bg {
   }
 }
 
-.bg2{
-  background-image:   url("/images/mandarino_bg.jpg");
-  background-position: right bottom;
-  background-repeat:   no-repeat;
-}
 // Links
 //
 // Styleguide 1.0
