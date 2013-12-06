@@ -94,8 +94,8 @@ helpers do
     s = Hash.new
 
     s["goal"] = 275
-    s["today"] = 5
-    s["total"] = 10
+    s["today"] = 14
+    s["total"] = 52
     plus = 5
     days = checkDate
 
