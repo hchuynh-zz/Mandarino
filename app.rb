@@ -61,11 +61,11 @@ helpers do
   # HH
 
   def checkDate
-    year= (Time.now.year).to_s
+    year = (Time.now.year).to_s
     days = (Date.parse("31/12/#{year}").mjd - DateTime.now.mjd)
   end
 
-  def getMandarin
+  def getMandarini
     s = Hash.new
 
     s["goal"] = 275
@@ -79,6 +79,7 @@ helpers do
     else
       s["message"] = "Manca ancora #{days} giorni e sei a #{plus} rispetto alla timetable!"
     end
+
     return s
   end
 
@@ -109,8 +110,8 @@ get "/" do
     @message = @stats["message"]
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
-  
   end
+
   if checkdate > 31
     erb :finish
   else
