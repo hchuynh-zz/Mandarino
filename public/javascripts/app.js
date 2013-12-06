@@ -47,7 +47,6 @@
             return total;
           },
           getLeft: function(){
-
             var left = "penso che moriro'" ;
             var val1 = $("#stats_goal").val();
             var val2 = $("#stats_total").val();
@@ -128,7 +127,7 @@
               name: 'La Sfida dei Mandarini',
               link: 'https://apps.facebook.com/mandarino',
               picture: 'https://still-peak-5198.herokuapp.com/images/mandarino.jpg',
-              description: 'Oggi ho mangiato '+stats.getToday()+' #mandarini e per arrivare a '+stats.getGoal()+' il 31 Dicembre, '+stats.getLeft()+'.'
+              description: 'Oggi ho mangiato '+stats.getToday()+' #mandarini, sono a quota '+stats.getTotal()+' e ad arrivare al 31 Dic. , '+stats.getLeft()+'.'
             },
             function (response) {
               // If response is null the user canceled the dialog
