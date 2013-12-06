@@ -75,7 +75,7 @@ helpers do
     days = checkDate
 
     if days >= 31
-      s["message"] = "La sfida è conclusa! Ci rivediamo il prossimo 1 Dicembre!"
+      s["message"] = "La sfida e' conclusa! Ci rivediamo il prossimo 1 Dicembre!"
     else
       s["message"] = "Manca ancora #{days} giorni e sei a #{plus} rispetto alla timetable!"
 
