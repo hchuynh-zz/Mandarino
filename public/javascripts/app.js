@@ -142,7 +142,7 @@
           FB.ui(
             {
               method  : 'apprequests',
-              message : $(this).attr('data-message')
+              message : "Sei abbastanza tosto per partecipare alla Sfida dei Mandarini?"
             },
             function (response) {
               // If response is null the user canceled the dialog
