@@ -61,8 +61,12 @@ helpers do
   # HH
 
   def getMandarini
-    @message = "DAJE!"
-    return @message
+    s = Hash.new
+    s["goal"] = 275
+    s["today"] = 5
+    s["total"] = 10
+    s["message"] = 'DAJE!'
+    return s
   end
 
   def writeMandarini(id, day, howmany = 0)
@@ -84,13 +88,15 @@ get "/" do
   @app  =  @graph.get_object(ENV["FACEBOOK_APP_ID"])
 
   @message = "Quanti #mandarini hai mangiato oggi?"
+  @stats = getMandarini
 
   if access_token
     @user    = @graph.get_object("me")
     @friends = @graph.get_connections('me', 'friends')
-    @message = getMandarini
+    @message = @stats.message
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
+  
   end
   erb :index
 end

@@ -61,7 +61,8 @@ header {
     padding: 2px 0 8px; }
 
 #picture {
-  float: left; }
+  float: left;
+  border-radius: 100px; }
 
 #profile {
   margin: 0 0 0 120px; }
@@ -131,6 +132,10 @@ header {
   margin: 0;
   outline: none;
   text-decoration: none; }
+
+.fullwidth {
+  margin: 5px 0;
+  width: 100%; }
 
 .facebook-button:visited {
   background-color: #00aa00; }

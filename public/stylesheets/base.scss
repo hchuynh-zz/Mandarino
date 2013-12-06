@@ -109,6 +109,7 @@ header {
 
 #picture{
   float: left;
+  border-radius: 100px;
 }
 
 #profile{
@@ -190,13 +191,18 @@ header {
 // Styleguide 1.0
 
 .basebutton{
-  background-color: #ff6600;
+  background-color: $mainColor;
   color: white;
   padding: 10px;
   line-height: 40px;
   margin: 0;
   outline: none;
   text-decoration: none;
+}
+
+.fullwidth{
+  margin: 5px 0;
+  width: 100%;
 }
 
 .facebook-button{

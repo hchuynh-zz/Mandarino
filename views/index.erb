@@ -38,7 +38,12 @@
           FB.ui(
             {
               method : 'feed',
-              link   : $(this).attr('data-url')
+              //link   : $(this).attr('data-url')
+
+              name: 'La Sfida dei Mandarini',
+              link: 'https://apps.facebook.com/mandarino',
+              picture: 'https://fbcdn-photos-d-a.akamaihd.net/hphotos-ak-prn1/851585_240963019398792_637601424_n.png',
+              description: 'Oggi ho mangiato '+stats.getToday()+' #mandarini e per arrivare a '+stats.getGoal()+' il 31 Dicembre, '+stats.getLeft()+'.'
             },
             function (response) {
               // If response is null the user canceled the dialog
@@ -122,7 +127,7 @@
         <p>Something's gone wrong :(
         </p>
       </div>
-      <button id="my_popup_close" class="basic_close btn btn-default basebutton">Chiudi</button>
+      <button id="my_popup_close" class="basic_close btn btn-default basebutton fullwidth">Chiudi</button>
     </div>
 
     <div id="rules" class="well hidden">
@@ -135,7 +140,7 @@
         <hr>
         <h1><strong>275</strong> #mandarini !</h1>
       </div>
-      <button id="rules_close" class="basic_close btn btn-default basebutton">Chiudi</button>
+      <button id="rules_close" class="basic_close btn btn-default basebutton fullwidth">Chiudi</button>
     </div>
 
     <header class="clearfix">
@@ -214,6 +219,10 @@
           <% end %>
         </section>
     <% end %>
+
+    <input id="stats_goal" type="hidden" value="<%= @stats['goal'] %>" />
+    <input id="stats_today" type="hidden" value="<%= @stats['today'] %>" />
+    <input id="stats_total" type="hidden" value="<%= @stats['total'] %>" />
 
     <script type="text/javascript" src="/javascripts/app.js"></script>
     </body>
