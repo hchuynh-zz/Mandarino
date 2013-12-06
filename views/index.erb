@@ -49,7 +49,7 @@
           );
         });
 
-        $('#sendRequest').click(function() {
+        $('.apprequests').click(function() {
           FB.ui(
             {
               method  : 'apprequests',
@@ -121,16 +121,16 @@
         <p>Something's gone wrong :(
         </p>
       </div>
-      <button class="basic_close btn btn-default">Close</button>
+      <button id="my_popup_close" class="basic_close btn btn-default">Chiudi</button>
     </div>
 
     <div id="rules" class="well hidden">
       <div id="rulescontent">
         <h4>Regole</h4>
-        <p>Ogni anno viene 
-        </p>
+        <p>Ogni anno viene scelto un target di mandarini da consumare al <strong>31 Dicembre</strong></p>
+        <p>Quest'anno il target da raggiungere è <span class="big">275</span> #mandarini !</p>
       </div>
-      <button class="basic_close btn btn-default">Close</button>
+      <button id="rules_close" class="basic_close btn btn-default">Chiudi</button>
     </div>
 
     <header class="clearfix">
@@ -190,19 +190,23 @@
       </section>
 
       <section id="mandarinofriends" class="clearfix">
-          <div class="list">
-            <h3>I tuoi amici che stanno partecipando alla sfida</h3>
-            <ul class="friends">
-              <% @friends_using_app.each do |friend_result| %>
-                <li>
-                  <a href="#" onclick="window.open('http://www.facebook.com/<%= friend_result['uid'] %>')">
-                    <img src="<%= friend_result['pic_square'] %>" alt="<%= friend_result['name'] %>">
-                    <%= friend_result['name'] %>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+          <% if @friends_using_app.to_a.empty? %>
+            <h2>Nessuno dei tuo amici partecipa alla sfida, perchè non ne <a href="#" class="apprequests">inviti uno</a>?</h2>
+          <% else %>
+            <div class="list">
+              <h3>I tuoi amici che stanno partecipando alla sfida</h3>
+              <ul class="friends">
+                <% @friends_using_app.each do |friend_result| %>
+                  <li>
+                    <a href="#" onclick="window.open('http://www.facebook.com/<%= friend_result['uid'] %>')">
+                      <img src="<%= friend_result['pic_square'] %>" alt="<%= friend_result['name'] %>">
+                      <%= friend_result['name'] %>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
         </section>
     <% end %>
 

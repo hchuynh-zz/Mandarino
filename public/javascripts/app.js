@@ -17,9 +17,12 @@
           init: function(){
             $('#my_popup').popup();
             $('#rules').popup();
-            $('.basic_close').click(function(){
+            $('#my_popup_close').click(function(){
               $('#my_popup').toggle();
-            })
+            });
+            $('#rules_close').click(function(){
+              $('#rules').toggle();
+            });
           }
         }
         
