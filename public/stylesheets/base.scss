@@ -4,7 +4,7 @@
 $mainColor:         #F60;
 $secondaryColor:    #0A0;
 $tertiaryColor:     #00A;
-$hiliteColor:       #FAA;
+$hiliteColor:       #FA0;
 
 $textColor:         #888;
 $textSubtleColor:   #AAA;
@@ -12,7 +12,7 @@ $textSubtleColor:   #AAA;
 $backgroundColor:   #FFF;
 $subtleBackground:  #EEE;
 
-$fontPrimary:   "Lucida Grande", Arial, sans-serif; 
+$fontPrimary:   10pt "Lucida Grande", Arial, sans-serif; 
 $fontSecondary: "Helvetica Neue", Arial, sans-serif;
 
 body {
@@ -131,6 +131,14 @@ header {
   font-weight: bold;
   font-size: 60pt;
   line-height: 100pt;
+  text-align: center;
+}
+
+#submessage{
+  color: $mainColor;
+  font-weight: bold;
+  font-size: 30pt;
+  line-height: 50pt;
   text-align: center;
 }
 

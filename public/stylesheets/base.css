@@ -1,7 +1,7 @@
 body {
   background-color: white;
   color: #888888;
-  font: "Lucida Grande", Arial, sans-serif;
+  font: 10pt "Lucida Grande", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   margin: 20px; }
 
@@ -33,7 +33,7 @@ a {
     font-weight: bold;
     text-decoration: none; }
   a:hover, a:active {
-    color: #ffaaaa;
+    color: #ffaa00;
     text-decoration: underline; }
 
 h1 {
@@ -79,6 +79,13 @@ header {
   font-weight: bold;
   font-size: 60pt;
   line-height: 100pt;
+  text-align: center; }
+
+#submessage {
+  color: #ff6600;
+  font-weight: bold;
+  font-size: 30pt;
+  line-height: 50pt;
   text-align: center; }
 
 #howmany {
