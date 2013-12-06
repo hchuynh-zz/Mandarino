@@ -1,8 +1,9 @@
 require "sinatra"
 require 'koala'
 
-#require './models/timetable'
-#require './models/ladder'
+require './config/environments' #database configuration
+require './models/timetable'
+require './models/ladder'
 
 enable :sessions
 set :raise_errors, false

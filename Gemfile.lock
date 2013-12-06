@@ -17,7 +17,9 @@ GEM
       multi_json (~> 1.0)
     multi_json (1.0.3)
     multipart-post (1.1.5)
+    pg (0.17.0)
     rack (1.3.10)
+    sequel (4.5.0)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
@@ -34,6 +36,8 @@ DEPENDENCIES
   httparty
   json
   koala
+  pg
   rack
+  sequel
   sinatra
   thin
