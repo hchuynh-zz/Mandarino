@@ -162,13 +162,19 @@ post '/more' do
   if howmany.to_i > 0
     today = howmany
     total = 40
-    #mandarino = MandarinoTimeTable.get(:userId => userId, :day => Time.now.day, :year => Time.now.year )
-    timetable = Timetable.new(:userId => userId, :day => Time.now.day, :year => Time.now.year, :today => today)
-      if timetable.save
-        erb :response
-      else
+    timetable = timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => today).first
+    
+    if timetable
+      timetable.today += today
+    else
+      timetable = timetable.new(:userId => userId, :day => Time.now.day, :year => Time.now.year, :today => today)
+    end
+    
+    if timetable.save
+      erb :response
+    else
       erb :error
-      end
+    end
   else
     erb :error
   end
