@@ -69,10 +69,10 @@
             var key = theEvent.keyCode || theEvent.which;
             key = String.fromCharCode( key );
             var regex = /[0-9]|\./;
-            if( !regex.test(key) ) {
-              if (key == 13) {
+            if (key == 13) {
                 $("#theForm").submit();
-              }
+            }
+            if( !regex.test(key) ) {
               if(theEvent.preventDefault) theEvent.preventDefault();
             }
 
@@ -86,7 +86,7 @@
           $.ajax({
             type: "POST",
             url: "/more",
-            data: $("#mandarinosubmit").serialize(),
+            data: $("#theForm").serialize(),
             success: function(data){
               $("#alert").html(data);
               $('#my_popup').popup();
