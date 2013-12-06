@@ -8,6 +8,7 @@ $hiliteColor:       #FA0;
 
 $textColor:         #888;
 $textSubtleColor:   #AAA;
+$textDarkColor:     #333;
 
 $backgroundColor:   #FFF;
 $subtleBackground:  #EEE;
@@ -83,6 +84,13 @@ h1 {
 
 .well { width: 400px;}
 
+#rules{
+  h1{
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
 // Header
 //
 // Styleguide 1.0
@@ -141,6 +149,7 @@ header {
 #mandarinofriends{
   font-size: 14pt;
   font-weight: bold;
+  color: $textDarkColor;
   p{
     margin:0;
   }
@@ -180,16 +189,19 @@ header {
 //
 // Styleguide 1.0
 
+.basebutton{
+  background-color: #ff6600;
+  color: white;
+  padding: 10px;
+  line-height: 40px;
+  margin: 0;
+  outline: none;
+  text-decoration: none;
+}
 
 .facebook-button{
   &:link, &.facebook-button:visited {
-    background-color:   $mainColor;
-    color:              $backgroundColor;
-    padding: 10px;
-    line-height: 40px;
-    margin: 0;
-    outline: none;
-    text-decoration: none;
+    @extend .basebutton;
   }
   &:visited{
     background-color:   $secondaryColor;

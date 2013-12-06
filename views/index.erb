@@ -122,7 +122,7 @@
         <p>Something's gone wrong :(
         </p>
       </div>
-      <button id="my_popup_close" class="basic_close btn btn-default">Chiudi</button>
+      <button id="my_popup_close" class="basic_close btn btn-default basebutton">Chiudi</button>
     </div>
 
     <div id="rules" class="well hidden">
@@ -132,9 +132,10 @@
         <p>Tutti possono partecipare liberamente e il numero dei mandarini mangiati viene calcolato basandosi unicamente sull'onesta dei partecipanti</p>
         <hr>
         <p>Quest'anno il target da raggiungere è:</p>
+        <hr>
         <h1><strong>275</strong> #mandarini !</h1>
       </div>
-      <button id="rules_close" class="basic_close btn btn-default">Chiudi</button>
+      <button id="rules_close" class="basic_close btn btn-default basebutton">Chiudi</button>
     </div>
 
     <header class="clearfix">
@@ -195,7 +196,7 @@
 
       <section id="mandarinofriends" class="clearfix">
           <% if @friends_using_app.to_a.empty? %>
-            <p>Nessuno dei tuo amici partecipa alla sfida, perchè non ne <a href="#" class="apprequests">inviti uno</a>?</p>
+            <p>Nessuno dei tuo amici partecipa alla sfida, perchè non ne <a href="#" class="apprequests" data-message="Sei abbastanza tosto per partecipare alla Sfida dei Mandarini?">inviti uno</a>?</p>
           <% else %>
             <div class="list">
               <h3>I tuoi amici che stanno partecipando alla sfida</h3>
