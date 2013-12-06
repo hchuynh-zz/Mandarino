@@ -76,7 +76,9 @@
               console.log(data);
             },
             error: function(data){
-              $("#alert").html(data)
+              if (data){
+                $("#alert").html(data)
+              }
               $('#my_popup').removeClass("hidden").popup("show");
               console.log(data);
 
