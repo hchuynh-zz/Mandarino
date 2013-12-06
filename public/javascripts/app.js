@@ -72,8 +72,8 @@
             if( !regex.test(key) ) {
               if(theEvent.preventDefault) theEvent.preventDefault();
             }else{
-              if (event.which == 13) {
-                event.preventDefault();
+              if (key == 13) {
+                theEvent.preventDefault();
                 $("#theForm").submit();
               }
             }

@@ -60,15 +60,25 @@ helpers do
 
   # HH
 
-  def getMandarini
+  def checkDate
+    year= (Time.now.year).to_s
+    days = (Date.parse("31/12/#{year}").mjd - DateTime.now.mjd)
+  end
+
+  def getMandarin
     s = Hash.new
+
     s["goal"] = 275
     s["today"] = 5
     s["total"] = 10
-    plus = 5.to_s
-    year= (Time.now.year).to_s
-    days = (Date.parse("31/12/#{year}").mjd - DateTime.now.mjd).to_s
-    s["message"] = "Manca ancora #{days} giorni e sei a #{plus} rispetto alla timetable!"
+    plus = 5
+    days = checkDate
+
+    if days >= 31
+      s["message"] = "La sfida è conclusa! Ci rivediamo il prossimo 1 Dicembre!"
+    else
+      s["message"] = "Manca ancora #{days} giorni e sei a #{plus} rispetto alla timetable!"
+
     return s
   end
 
@@ -101,7 +111,10 @@ get "/" do
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
   
   end
-  erb :index
+  if checkdate > 31
+    erb :finish
+  else
+    erb :index
 end
 
 # used by Canvas apps - redirect the POST to be a regular GET
