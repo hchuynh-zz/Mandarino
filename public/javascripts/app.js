@@ -90,10 +90,13 @@
             success: function(data){
               $("#alert").html(data);
               $('#my_popup').popup();
+              console.log(data);
             },
             error: function(data){
               $("#alert").html(data)
               $('#my_popup').popup();
+                            console.log(data);
+
             }
           });
           return false;
