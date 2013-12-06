@@ -2,8 +2,8 @@ require "sinatra"
 require 'koala'
 require 'sinatra/activerecord'
 require './config/environments' #database configuration
-require './models/MandarinoTimeTable'
-require './models/Ladder'
+require './models/timeTable'
+require './models/ladder'
 
 enable :sessions
 set :raise_errors, false
