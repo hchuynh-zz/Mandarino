@@ -115,6 +115,7 @@ get "/" do
     erb :finish
   else
     erb :index
+  end
 end
 
 # used by Canvas apps - redirect the POST to be a regular GET
