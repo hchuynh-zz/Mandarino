@@ -1,9 +1,33 @@
 require "sinatra"
 require 'koala'
+require 'data_mapper'
 
 enable :sessions
 set :raise_errors, false
 set :show_exceptions, false
+
+configure do
+  DataMapper.setup(:default, 'mysql://lasfidad85910:lasf59313@sql.lasfidadelmandarino.it/lasfidad85910')
+end
+
+
+class MandarinoTimeTable
+  include DataMapper::Resource
+  property :id,         Serial    # An auto-increment integer key
+  property :userId,     String    # A varchar type string, for User Facebook ID
+  property :day,        Integer   # The Day
+  property :year,       Integer   # The Year
+  property :today,      Integer   # Number of tangerins
+end
+
+class Ladder
+  include DataMapper::Resource
+  property :id,         Serial    # An auto-increment integer key
+  property :userId,     String    # A varchar type string, for User Facebook ID
+  property :year,       Integer   # The Year
+  property :total,      Integer   # Number of total tangerines
+end
+
 
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
@@ -149,6 +173,17 @@ get '/auth/facebook/callback' do
 end
 
 # HH
-post "/more" do
-  redirect "/"
+get '/more' do
+  howmany = params[:howmany]
+  uid = params[:who]
+
+  if howmany > 0
+    @total = howmany
+    erb :response
+  else
+    erb :error
+  end
+
 end
+
+

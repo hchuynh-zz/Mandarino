@@ -82,29 +82,26 @@
 
         $("#theForm").submit(function(e){
           e.preventDefault();
-          popup.open("Yeay", "Test");
 
-          return false;
-/*
           $.ajax({
             type: "POST",
             url: "/more",
             data: $("#mandarinosubmit").serialize(),
-            success: function(){
-              $("#alert").html("Successfully registered");
+            success: function(data){
+              $("#alert").html(data);
               $('#my_popup').popup();
             },
-            error: function(){
-              $("#message").html("Not Successful")
+            error: function(data){
+              $("#alert").html(data)
               $('#my_popup').popup();
             }
           });
-*/
+          return false;
         });
 
 
 
-$('#postToWall').click(function() {
+        $('#postToWall').click(function() {
           FB.ui(
             {
               method : 'feed',
@@ -112,7 +109,7 @@ $('#postToWall').click(function() {
 
               name: 'La Sfida dei Mandarini',
               link: 'https://apps.facebook.com/mandarino',
-              picture: 'https://fbcdn-photos-d-a.akamaihd.net/hphotos-ak-prn1/851585_240963019398792_637601424_n.png',
+              picture: 'https://still-peak-5198.herokuapp.com/images/mandarino.jpg',
               description: 'Oggi ho mangiato '+stats.getToday()+' #mandarini e per arrivare a '+stats.getGoal()+' il 31 Dicembre, '+stats.getLeft()+'.'
             },
             function (response) {
