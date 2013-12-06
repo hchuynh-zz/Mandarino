@@ -4,8 +4,8 @@
         }
       }
 
-      $(function(){
-        // Set up so we handle click on the buttons
+      $( document ).ready(function(){
+
         $('#postToWall').click(function() {
           FB.ui(
             {
@@ -35,10 +35,6 @@
             }
           );
         });
-      });
-
-
-      $(function() {
 
         $("#howmany").keypress(function(e){
             var theEvent = e || window.event;
@@ -59,11 +55,15 @@
             url: "/register",
             data: $("#mandarinosubmit").serialize(),
             success: function(){
-              $("#message").html("Successfully registered")
+              $("#alert").html("Successfully registered");
+              $('#my_popup').popup();
             },
             error: function(){
               $("#message").html("Not Successful")
+              $('#my_popup').popup();
             }
           });
         });
+
       });
+      

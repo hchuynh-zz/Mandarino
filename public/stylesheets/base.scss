@@ -54,10 +54,6 @@ h1 {
 //
 // Styleguide 1.0
 
-#my_modal{
-  display:none;
-}
-
 
 header {
   padding: 24px 18px;
@@ -151,4 +147,8 @@ header {
 
 .right{
   float:right;
+}
+
+.hidden{
+  display:hidden;
 }

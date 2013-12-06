@@ -6,7 +6,7 @@ body {
   margin: 20px; }
 
 a {
-  color: #aa0000; }
+  color: #aabb00; }
   a:link, a:visited {
     font-weight: bold;
     text-decoration: none; }
@@ -15,13 +15,10 @@ a {
     text-decoration: underline; }
 
 h1 {
-  color: #aa0000;
+  color: #aabb00;
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
   font-weight: normal; }
-
-#my_modal {
-  display: none; }
 
 header {
   padding: 24px 18px; }
@@ -57,68 +54,16 @@ header {
   font-size: 60pt;
   text-align: right; }
 
-/* ------------------------------------------ */
-/* =buttons
---------------------------------------------- */
-.facebook-button:link, .facebook-button:visited {
-  background-color: #eee;
-  background-image: -moz-linear-gradient(top, #fdfdfd, #eaebeb);
-  background-image: -ms-linear-gradient(top, #fdfdfd, #eaebeb);
-  background-image: -o-linear-gradient(top, #fdfdfd, #eaebeb);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fdfdfd), to(#eaebeb));
-  background-image: -webkit-linear-gradient(top, #fdfdfd, #eaebeb);
-  background-image: linear-gradient(top, #fdfdfd, #eaebeb);
+.facebook-button:link, .facebook-button.facebook-button:visited {
+  background-color: #aabb00;
+  color: white;
   border: 1px solid #a9a9a9;
-  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  color: #4f4f4f;
-  display: -moz-inline-box;
-  display: inline-block;
-  font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
-  font-size: 11px;
-  font-weight: bold;
   line-height: 20px;
   margin: 0;
   outline: none;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33); }
-
-.facebook-button span {
-  background: url("../images/sprites.png") no-repeat;
-  padding: 0 7px 0 21px; }
-
-.facebook-button .speech-bubble {
-  background-position: 6px 3px; }
-
-.facebook-button .plus {
-  background-position: 6px -17px; }
-
-.facebook-button .apprequests {
-  background-position: 6px -37px; }
-
-.button:link, .button:visited {
-  background-color: #7a90c0;
-  background-image: -moz-linear-gradient(top, #97afe2, #6073a1);
-  background-image: -ms-linear-gradient(top, #97afe2, #6073a1);
-  background-image: -o-linear-gradient(top, #97afe2, #6073a1);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#97afe2), to(#6073a1));
-  background-image: -webkit-linear-gradient(top, #97afe2, #6073a1);
-  background-image: linear-gradient(top, #97afe2, #6073a1);
-  border: none;
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;
-  border-radius: 30px;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.33) inset;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.33) inset;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.33) inset;
-  color: #1d222c;
-  display: inline-block;
-  font: bold 14px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
-  line-height: 32px;
-  padding: 0 25px;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2); }
+  text-decoration: none; }
+.facebook-button:visited {
+  background-color: #00aa00; }
 
 .clearfix:after {
   clear: both;
@@ -137,3 +82,6 @@ header {
 
 .right {
   float: right; }
+
+.hidden {
+  display: hidden; }
