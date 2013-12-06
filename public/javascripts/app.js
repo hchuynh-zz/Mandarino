@@ -127,7 +127,7 @@
               name: 'La Sfida dei Mandarini',
               link: 'https://apps.facebook.com/mandarino',
               picture: 'https://still-peak-5198.herokuapp.com/images/mandarino.jpg',
-              description: 'Oggi ho mangiato '+stats.getToday()+' #mandarini, sono a quota '+stats.getTotal()+'!! Ad arrivare al 31 Dicembre, '+stats.getLeft()+'.'
+              description: 'Oggi ho mangiato <strong>'+stats.getToday()+'</strong> #mandarini, sono a quota <strong>'+stats.getTotal()+'</strong>!!<br>Ad arrivare al 31 Dicembre, '+stats.getLeft()+'.'
             },
             function (response) {
               // If response is null the user canceled the dialog
