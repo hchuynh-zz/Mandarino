@@ -71,7 +71,13 @@
             var regex = /[0-9]|\./;
             if( !regex.test(key) ) {
               if(theEvent.preventDefault) theEvent.preventDefault();
+            }else{
+              if (event.which == 13) {
+                event.preventDefault();
+                $("#theForm").submit();
+              }
             }
+
         }).focus(function(){
           $(this).select();
         });
