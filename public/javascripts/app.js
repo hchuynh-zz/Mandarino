@@ -164,6 +164,7 @@
           );
         });
 
+
         $('.apprequests').click(function() {
           FB.ui(
             {
