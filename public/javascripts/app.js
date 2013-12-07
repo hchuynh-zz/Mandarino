@@ -78,8 +78,8 @@
         var ui = {
           refresh: function(today, total){
             stats.setToday(today);
-            stats.setTotal(total);
-            $("#total_big").html(total);
+            stats.setTotal(total+today);
+            $("#total_big").html(total+today);
             $("#message").html("Aggiornato il totale di oggi a "+today+"!");
           }
 
