@@ -84,13 +84,12 @@ helpers do
     s["goal"] = 275
     s["today"] = 14
     s["total"] = 52
-    plus = 5
     days = checkDate
 
     if days >= 31
       s["message"] = "La sfida e' conclusa! Ci rivediamo il prossimo 1 Dicembre!"
     else
-      s["message"] = "Mancano ancora #{days} giorni e sei a #{plus} rispetto alla timetable!"
+      s["message"] = "Mancano ancora #{days} giorni, coraggio!"
     end
 
     return s
@@ -125,6 +124,8 @@ get "/" do
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
   end
 
+  @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
+  
   if checkDate > 31
     erb :finish
   else

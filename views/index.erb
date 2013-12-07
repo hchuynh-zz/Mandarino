@@ -115,13 +115,16 @@
       <% if @user %>
           <img id="picture" src="https://graph.facebook.com/<%= @user['id'] %>/picture?type=normal" />
           <div id="profile">
+             <div class="left">
+              <%= @total_big %>
+            </div>
             <div class="left">
-            <h2>WOW, <strong><%= @user['name'] %></strong></h2>
-            <p class="tagline">
-              Siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>? =^_^=
-            </p>
-          </div>
-          <div id="share">
+              <h2>WOW, <strong><%= @user['name'] %></strong></h2>
+              <p class="tagline">
+                Siamo pronti a mangiare un #<a href="<%= @app['@app'] %>"><%= @app['name'] %></a>? =^_^=
+              </p>
+            </div>
+            <div id="share">
               <p>Invita un tuo amico alla <a id="actionrules" href="#">Sfida dei Mandarini</a></p>
               <ul>
                 <li>
