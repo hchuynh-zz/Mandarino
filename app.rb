@@ -1,6 +1,8 @@
 require "sinatra"
 require 'koala'
-require 'sequel'
+require 'sinatra/activerecord'
+require './models/timetable'
+require './models/ladder'  
 
 require './config/environments' #database configuration
 
