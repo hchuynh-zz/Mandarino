@@ -81,9 +81,9 @@ helpers do
   def getMandarini
     s = Hash.new
 
-    s["goal"] = 275
-    s["today"] = 14
-    s["total"] = 52
+    s["goal"] = GOAL
+    s["today"] = (Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first).today
+    s["total"] = Timetable.where(:user_id => userId, :year => Time.now.year).sum("today")
     days = checkDate
 
     if days >= 31
@@ -183,7 +183,7 @@ post '/more' do
     
     if timetable.save
       if laddertoday && @total > 0
-        laddertoday.total = @total + @today
+        laddertoday.total = @total.to_i + @today.to_i
       elsif laddertoday
         laddertoday.total = @today
       else
