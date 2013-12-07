@@ -34,9 +34,9 @@ end
 
 before do
   # HTTPS redirect
-  if settings.environment == :production && request.scheme != 'https'
-    redirect "https://#{request.env['HTTP_HOST']}"
-  end
+ # if settings.environment == :production && request.scheme != 'https'
+  #  redirect "https://#{request.env['HTTP_HOST']}"
+  #end
 end
 
 helpers do
@@ -109,7 +109,7 @@ get "/" do
 
   # Get public details of current application
   @app  =  @graph.get_object(ENV["FACEBOOK_APP_ID"])
-  @stats
+
   @goal = GOAL
   @message = "Quanti #mandarini hai mangiato oggi?"
   @total_big = 0
@@ -125,7 +125,7 @@ get "/" do
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
     
-   # @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
+    @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
   end
 
   
