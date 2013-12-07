@@ -11,9 +11,9 @@ set :show_exceptions, false
 
 
 configure do
-  DB = Sequel.connect( ENV["DATABASE_URL"] )
-  require './models/timetable'
-  require './models/ladder'
+  #DB = Sequel.connect( ENV["DATABASE_URL"] )
+  #require './models/timetable'
+  #require './models/ladder'
 end
 
 # Scope defines what permissions that we are asking the user to grant.
