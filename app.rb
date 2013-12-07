@@ -78,12 +78,12 @@ helpers do
     days = (Date.parse("31/12/#{year}").mjd - DateTime.now.mjd)
   end
 
-  def getMandarini
+  def getMandarini(user)
     s = Hash.new
-    tt = Timetable.where(:user_id => @user['id'], :day => Time.now.day, :year => Time.now.year).first
+    tt = Timetable.where(:user_id => user['id'], :day => Time.now.day, :year => Time.now.year).first
     s["goal"] = GOAL
     s["today"] = tt.today
-    s["total"] = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
+    s["total"] = Timetable.where(:user_id => user['id'], :year => Time.now.year).sum("today")
     days = checkDate
 
     if days >= 31
@@ -112,17 +112,24 @@ get "/" do
 
   # Get public details of current application
   @app  =  @graph.get_object(ENV["FACEBOOK_APP_ID"])
-
+  @stats
   @message = "Quanti #mandarini hai mangiato oggi?"
-  @stats = getMandarini
 
   if access_token
+
     @user    = @graph.get_object("me")
     @friends = @graph.get_connections('me', 'friends')
+
+    @stats = getMandarini(@user)
+    
     @message = @stats["message"]
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
+
   end
+
+
+  
 
   @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
   
