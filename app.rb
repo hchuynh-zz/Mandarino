@@ -115,13 +115,14 @@ get "/" do
   @stats
   @message = "Quanti #mandarini hai mangiato oggi?"
 
+  @today = 1
+    
   if access_token
-
     @user    = @graph.get_object("me")
     @friends = @graph.get_connections('me', 'friends')
 
     @stats = getMandarini(@user)
-    
+    @today = @stats['today']
     @message = @stats["message"]
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
