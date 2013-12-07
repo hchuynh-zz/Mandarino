@@ -183,6 +183,8 @@ post '/more' do
     if timetable.save
       if laddertoday && ladderbefore
         laddertoday.total = ladderbefore.total + @today
+      elsif laddertoday
+        laddertoday.total = @today
       else
         laddertoday = Ladder.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :total => @today, :goal => GOAL)
       end
@@ -194,7 +196,7 @@ post '/more' do
     end
 
   end
-  
+
   erb :error
 end
 
