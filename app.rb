@@ -80,9 +80,9 @@ helpers do
 
   def getMandarini
     s = Hash.new
-
+    tt = Timetable.where(:user_id => @user['id'], :day => Time.now.day, :year => Time.now.year).first
     s["goal"] = GOAL
-    s["today"] = (Timetable.where(:user_id => @user['id'], :day => Time.now.day, :year => Time.now.year).first).today
+    s["today"] = tt.today
     s["total"] = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
     days = checkDate
 
