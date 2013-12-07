@@ -175,7 +175,7 @@ post '/more' do
     if timetable
        timetable.today += @today
     else
-       timetable = Timetable.new(:userId => userId, :day => Time.now.day, :year => Time.now.year, :today => @today)
+       timetable = Timetable.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => @today)
     end
     
     if timetable.save
