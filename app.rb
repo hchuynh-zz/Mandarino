@@ -189,14 +189,14 @@ post '/more' do
 
     if timetable
       @oldtotal = @total.to_i - timetable.today.to_i
-      timetable.today = @oldtotal + @today
+      timetable.today = @today
     else
        timetable = Timetable.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => @today)
     end
     
     if timetable.save
       if ladder
-        ladder.total = @today
+        ladder.total = @oldtotal + @today
       else
         ladder = Ladder.new(:user_id => userId, :year => Time.now.year, :total => @today, :goal => GOAL)
       end
