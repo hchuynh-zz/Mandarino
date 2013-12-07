@@ -179,33 +179,27 @@ post '/more' do
   if howmany.to_i > 0
     @today = howmany
     @total = Timetable.where(:user_id => userId, :year => Time.now.year).sum("today")
-    @totalbefore = @today
-    timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
-    ladderbefore = Ladder.where(:user_id => userId, :year => Time.now.year).order("day DESC").limit(1).offset(1).first
-    laddertoday = Ladder.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
+    timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).order("day DESC").first
+    ladder = Ladder.where(:user_id => userId, :year => Time.now.year).order("year DESC").first
 
-    if timetable
-      
-      if @total >0 
-        @totaltotalbefore = @totaltotalbefore.to_i - timetable.today.to_i
-      end
-      
+    unless @total
+      @total = 0
+    end
+
+    if timetable      
       timetable.today = @today
     else
        timetable = Timetable.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => @today)
     end
     
     if timetable.save
-      if laddertoday && @totaltotalbefore > 0
-        @today = @totaltotalbefore.to_i + @today.to_i 
-        laddertoday.total = @today
-      elsif laddertoday
-        laddertoday.total = @today
+      if ladder
+        ladder.total = @today
       else
-        laddertoday = Ladder.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :total => @today, :goal => GOAL)
+        ladder = Ladder.new(:user_id => userId, :year => Time.now.year, :total => @today, :goal => GOAL)
       end
 
-      if laddertoday.save
+      if ladder.save
         erb :response
       else
         erb :error
