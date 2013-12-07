@@ -99,14 +99,12 @@
               ui.refresh(jdata.today, jdata.total);
               $("#alert").html(jdata.content);
               $('#my_popup').removeClass("hidden").popup("show");
-              console.log(jdata);
             },
             error: function(data){
               if (data){
                 $("#alert_error").html(data)
               }
               $('#my_popup_error').removeClass("hidden").popup("show");
-              console.log(data);
 
             }
           });
