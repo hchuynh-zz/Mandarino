@@ -68,7 +68,7 @@ helpers do
   end
 
   def access_token
-    session[:access_token] #|| access_token_from_cookie
+    session[:access_token] || access_token_from_cookie
   end
 
   # HH
