@@ -95,9 +95,6 @@ helpers do
     return s
   end
 
-  def writeMandarini(id, day, howmany = 0)
-  end
-
 end
 
 # the facebook session expired! reset ours and restart the process
@@ -128,7 +125,7 @@ get "/" do
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
     
-    @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
+   # @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
   end
 
   
