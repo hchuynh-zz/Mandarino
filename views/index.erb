@@ -179,7 +179,7 @@
         <div id="message"><%= @message %></div>
         <div id="submessage">Quanti ne hai mangiati oggi?</div>
         <form id="theForm">
-          <input type="number" name="howmany" id="howmany" maxlength="2" maxsize="2" min="1" max="99" placeholder="1" value="<%= @today %>">
+          <input type="number" name="howmany" id="howmany" maxlength="2" maxsize="2" min="0" max="99" placeholder="1" value="<%= @today %>">
           <input type="hidden" name="who" value="<%= @user['id'] %>" />
           <input id="mandarinosubmit" type="submit" value="SALVA"/>
         </form>

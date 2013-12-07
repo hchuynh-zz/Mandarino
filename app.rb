@@ -176,7 +176,7 @@ post '/more' do
   userId = params[:who]
 
 
-  if howmany.to_i > 0
+  if howmany.to_i >= 0
     @today = howmany.to_i
     @total = Timetable.where(:user_id => userId, :year => Time.now.year).sum("today")
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).order("day DESC").first
