@@ -1,2 +1,2 @@
-class Ladder < Sequel::Model
+class Ladder < ActiveRecord::Base
 end

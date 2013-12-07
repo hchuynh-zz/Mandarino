@@ -2,7 +2,7 @@ require "sinatra"
 require 'koala'
 require 'sequel'
 
-#require './config/environments' #database configuration
+require './config/environments' #database configuration
 
 
 enable :sessions
@@ -10,11 +10,11 @@ set :raise_errors, false
 set :show_exceptions, false
 
 
-configure do
+#configure do
   #DB = Sequel.connect( ENV["DATABASE_URL"] )
   #require './models/timetable'
   #require './models/ladder'
-end
+#end
 
 # Scope defines what permissions that we are asking the user to grant.
 # In this example, we are asking for the ability to publish stories
@@ -166,8 +166,8 @@ post '/more' do
 
 
   if howmany.to_i > 0
-    today = howmany
-    total = 40
+    @today = howmany
+    @total = 40
     # timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => today).first
     
     # if timetable

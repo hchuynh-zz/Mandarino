@@ -1,2 +1,2 @@
-class Timetable < Sequel::Model
+class Timetable < ActiveRecord::Base
 end
