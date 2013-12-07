@@ -113,6 +113,7 @@ get "/" do
   # Get public details of current application
   @app  =  @graph.get_object(ENV["FACEBOOK_APP_ID"])
   @stats
+  @goal = GOAL
   @message = "Quanti #mandarini hai mangiato oggi?"
   @total_big = 0
   @today = 1
