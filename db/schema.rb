@@ -13,6 +13,7 @@ ActiveRecord::Schema.define(:version => 20131205192556) do
     t.integer  "user_id", :null => false
     t.integer  "year",    :null => false
     t.integer  "total",    :null => false
+    t.integer  "goal",    :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

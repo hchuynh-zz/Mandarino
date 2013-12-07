@@ -5,6 +5,7 @@ class CreateLadder < ActiveRecord::Migration
       t.integer :day
       t.integer :year
       t.integer :total
+      t.integer :goal
       t.timestamps
     end
   end
