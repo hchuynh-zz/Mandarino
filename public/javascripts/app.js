@@ -30,7 +30,8 @@
             });
           }
         }
-        
+
+
         var stats = {
           setToday: function(today){
             $("#stats_today").val(today);
@@ -74,6 +75,14 @@
 
         }
 
+        var ui{
+          refresh: function(today, total){
+            stats.setToday(today);
+            stats.setTotal(total);
+          }
+
+        }
+
         popup.init();
 
         $("#theForm").submit(function(e){
@@ -84,14 +93,17 @@
             url: "/more",
             data: $("#theForm").serialize(),
             success: function(data){
+              ui.refresh(data.today, data.total);
               $("#alert").html(data.content);
               $('#my_popup').removeClass("hidden").popup("show");
+              console.log(data);
             },
             error: function(data){
               if (data){
                 $("#alert_error").html(data)
               }
               $('#my_popup_error').removeClass("hidden").popup("show");
+              console.log(data);
 
             }
           });
