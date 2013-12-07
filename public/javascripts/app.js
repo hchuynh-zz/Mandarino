@@ -95,10 +95,11 @@
             url: "/more",
             data: $("#theForm").serialize(),
             success: function(data){
-              ui.refresh(data.today, data.total);
-              $("#alert").html(data.content);
+              jdata = JSON.parse(data);
+              ui.refresh(jdata.today, jdata.total);
+              $("#alert").html(jdata.content);
               $('#my_popup').removeClass("hidden").popup("show");
-              console.log(data);
+              console.log(jdata);
             },
             error: function(data){
               if (data){
