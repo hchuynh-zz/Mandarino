@@ -181,8 +181,9 @@ post '/more' do
     if timetable.save
       erb :response
     else
-       erb :error
+      erb :error
     end
+    
   else
     erb :error
   end
