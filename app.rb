@@ -187,7 +187,7 @@ post '/more' do
     if timetable
       
       if @total >0 
-        @totaltotalbefore -= timetable.today
+        @totaltotalbefore = @totaltotalbefore.to_i - timetable.today.to_i
       end
       
       timetable.today = @today
