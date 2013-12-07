@@ -178,6 +178,7 @@ post '/more' do
   if howmany.to_i > 0
     @today = howmany
     @total = Timetable.where(:user_id => userId, :year => Time.now.year).sum("today")
+    @totalbefore = @today
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
     ladderbefore = Ladder.where(:user_id => userId, :year => Time.now.year).order("day DESC").limit(1).offset(1).first
     laddertoday = Ladder.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
@@ -185,7 +186,7 @@ post '/more' do
     if timetable
       
       if @total >0 
-        @total -= timetable.today
+        @totaltotalbefore -= timetable.today
       end
       
       timetable.today = @today
@@ -194,8 +195,9 @@ post '/more' do
     end
     
     if timetable.save
-      if laddertoday && @total > 0
-        laddertoday.total = @total.to_i + @today.to_i
+      if laddertoday && @totaltotalbefore > 0
+        @today = @totaltotalbefore.to_i + @today.to_i 
+        laddertoday.total = @today
       elsif laddertoday
         laddertoday.total = @today
       else
