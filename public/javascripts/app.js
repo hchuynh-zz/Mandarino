@@ -16,10 +16,14 @@
           },
           init: function(){
             $.fn.popup.defaults.transition = 'all 0.3s';
-            $('#my_popup').popup();
+            $('#my_popup').popup({onclose: function(){$('#postToWall').click();}});
+            $('#my_popup_error').popup();
             $('#rules').popup();
             $('#my_popup_close').click(function(){
               $('#my_popup').popup("hide");
+            });
+            $('#my_popup_error_close').click(function(){
+              $('#my_popup_error').popup("hide");
             });
             $('#rules_close').click(function(){
               $('#rules').popup("hide");
@@ -28,6 +32,15 @@
         }
         
         var stats = {
+          setToday: function(today){
+            $("#stats_today").val(today);
+          },
+          setTotal: function(total){
+            $("#stats_total").val(total);
+          },
+          setGoal: function(goal){
+            $("#stats_goal").val(goal);
+          },
           getGoal: function(){
             var goal = 0;
             var val = $("#stats_goal").val();
@@ -71,16 +84,14 @@
             url: "/more",
             data: $("#theForm").serialize(),
             success: function(data){
-              $("#alert").html(data);
+              $("#alert").html(data.content);
               $('#my_popup').removeClass("hidden").popup("show");
-              console.log(data);
             },
             error: function(data){
               if (data){
-                $("#alert").html(data)
+                $("#alert_error").html(data)
               }
-              $('#my_popup').removeClass("hidden").popup("show");
-              console.log(data);
+              $('#my_popup_error').removeClass("hidden").popup("show");
 
             }
           });
