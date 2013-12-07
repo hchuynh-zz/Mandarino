@@ -90,6 +90,13 @@ h1 {
   }
 }
 
+#total_big{
+  font-size: 60pt;
+  line-height: 40pt;
+  margin: 0 10px 0 0;
+  font-weight: bold;
+  color: $mainColor;
+}
 // Header
 //
 // Styleguide 1.0
@@ -213,6 +220,8 @@ header {
 .fb-login-button{
   margin: 30px 0;
 }
+
+
 
 // Hacks
 //

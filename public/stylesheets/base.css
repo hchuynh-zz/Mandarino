@@ -52,6 +52,13 @@ h1 {
     font-size: 40px;
     text-align: center; }
 
+#total_big {
+  font-size: 60pt;
+  line-height: 40pt;
+  margin: 0 10px 0 0;
+  font-weight: bold;
+  color: #ff6600; }
+
 header {
   padding: 24px 18px; }
   header h1 {
