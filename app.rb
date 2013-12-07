@@ -169,7 +169,6 @@ post '/more' do
 
   if howmany.to_i > 0
     @today = howmany
-    @total = 40
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
     ladderbefore = Ladder.where(:user_id => userId, :year => Time.now.year).order("day DESC").limit(1).offset(1).first
     laddertoday = Ladder.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
@@ -191,13 +190,15 @@ post '/more' do
 
       if laddertoday.save
         erb :response
+      else
+        erb :error
       end
-
+    else
+      erb :error
     end
-
+  else
+    erb :error
   end
-
-  erb :error
 end
 
 
