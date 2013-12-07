@@ -177,17 +177,19 @@ post '/more' do
 
 
   if howmany.to_i > 0
-    @today = howmany
+    @today = howmany.to_i
     @total = Timetable.where(:user_id => userId, :year => Time.now.year).sum("today")
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).order("day DESC").first
+    @oldtotal = 0
     ladder = Ladder.where(:user_id => userId, :year => Time.now.year).order("year DESC").first
 
     unless @total
       @total = 0
     end
 
-    if timetable      
-      timetable.today = @today
+    if timetable
+      @oldtotal = @total.to_i - timetable.today.to_i
+      timetable.today = @oldtotal + @today
     else
        timetable = Timetable.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => @today)
     end
