@@ -181,9 +181,14 @@ post '/more' do
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
     ladderbefore = Ladder.where(:user_id => userId, :year => Time.now.year).order("day DESC").limit(1).offset(1).first
     laddertoday = Ladder.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
-    
+
     if timetable
-       timetable.today = @today
+      
+      if @total >0 
+        @total -= timetable.today
+      end
+      
+      timetable.today = @today
     else
        timetable = Timetable.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => @today)
     end
