@@ -75,10 +75,12 @@
 
         }
 
-        var ui{
+        var ui = {
           refresh: function(today, total){
             stats.setToday(today);
             stats.setTotal(total);
+            $("#total_big").html(today);
+            $("#message").html("Aggiornato il totale di oggi a "+today+"!");
           }
 
         }
