@@ -170,19 +170,19 @@ post '/more' do
   if howmany.to_i > 0
     @today = howmany
     @total = 40
-    # timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => today).first
+    timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :today => today).first
     
-    # if timetable
-    #   timetable.today += today
-    # else
-    #   timetable = Timetable.new(:userId => userId, :day => Time.now.day, :year => Time.now.year, :today => today)
-    # end
+    if timetable
+       timetable.today += today
+    else
+       timetable = Timetable.new(:userId => userId, :day => Time.now.day, :year => Time.now.year, :today => today)
+    end
     
-    # if timetable.save
+    if timetable.save
       erb :response
-    # else
-    #   erb :error
-    # end
+    else
+       erb :error
+    end
   else
     erb :error
   end
