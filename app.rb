@@ -6,7 +6,7 @@ require './models/ladder'
 
 require './config/environments' #database configuration
 
-
+GOAL = 275
 enable :sessions
 set :raise_errors, false
 set :show_exceptions, false
@@ -170,7 +170,6 @@ post '/more' do
   if howmany.to_i > 0
     @today = howmany
     @total = 40
-    @goal = 275
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
     ladderbefore = Ladder.where(:user_id => userId, :year => Time.now.year).order("day DESC").limit(1).offset(1).first
     laddertoday = Ladder.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).first
@@ -182,17 +181,20 @@ post '/more' do
     end
     
     if timetable.save
-      if laddertoday && labelbefore
+      if laddertoday && ladderbefore
         laddertoday.total = ladderbefore.total + @today
       else
-        laddertoday = Ladder.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :total => @today, :goal => @goal)
+        laddertoday = Ladder.new(:user_id => userId, :day => Time.now.day, :year => Time.now.year, :total => @today, :goal => GOAL)
       end
 
       if laddertoday.save
         erb :response
       end
+
     end
+
   end
+  
   erb :error
 end
 
