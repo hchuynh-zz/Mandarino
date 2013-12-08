@@ -162,6 +162,18 @@ header {
   }
 }
 
+.friends{
+  ul {
+    li {
+      float: left;
+      list-style: none;
+      padding: 0 20px 0 0;
+      border: 1px solid #EEE;
+      margin: 10px;  
+    }
+  }
+}
+
 #message{
   font-weight: bold;
   font-size: 20pt;
