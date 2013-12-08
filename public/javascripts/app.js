@@ -150,9 +150,9 @@
               method : 'feed',
               //link   : $(this).attr('data-url')
 
-              name: 'La Sfida dei Mandarini',
+              name: 'La Sfida del Mandarino',
               link: 'https://apps.facebook.com/mandarino',
-              picture: 'https://still-peak-5198.herokuapp.com/images/mandarino.jpg',
+              picture: 'https://mandarino.herokuapp.com/images/mandarino.jpg',
               description: 'Oggi ho mangiato '+stats.getToday()+' #mandarini, sono a quota '+stats.getTotal()+'!! =^_^= Ad arrivare al 31 Dicembre, '+stats.getLeft()+'.'
             },
             function (response) {
@@ -169,7 +169,7 @@
           FB.ui(
             {
               method  : 'apprequests',
-              message : "Sei abbastanza tosto per partecipare alla Sfida dei Mandarini?"
+              message : "Sei abbastanza tosto per partecipare alla Sfida del Mandarino?"
             },
             function (response) {
               // If response is null the user canceled the dialog
