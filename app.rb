@@ -124,7 +124,7 @@ get "/app" do
 
   @goal = GOAL
   @message = "Quanti #mandarini hai mangiato oggi?"
-  @total_big = 0
+  @total = 0
   @today = 1
     
   if access_token
@@ -136,7 +136,8 @@ get "/app" do
     @message = @stats["message"]
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
-    @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
+    @total = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
+
   end
 
   @ladder = getLadder
