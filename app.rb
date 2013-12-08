@@ -34,9 +34,9 @@ end
 
 before do
   # HTTPS redirect
- # if settings.environment == :production && request.scheme != 'https'
-  #  redirect "https://#{request.env['HTTP_HOST']}"
-  #end
+  if settings.environment == :production && request.scheme != 'https'
+    redirect "https://#{request.env['HTTP_HOST']}"
+  end
 end
 
 helpers do
@@ -80,9 +80,12 @@ helpers do
 
   def getMandarini(user)
     s = Hash.new
+    s["today"] = 0
     tt = Timetable.where(:user_id => user['id'], :day => Time.now.day, :year => Time.now.year).first
     s["goal"] = GOAL
-    s["today"] = tt.today
+    if tt
+      s["today"] = tt.today
+    end
     s["total"] = Timetable.where(:user_id => user['id'], :year => Time.now.year).sum("today")
     days = checkDate
 
