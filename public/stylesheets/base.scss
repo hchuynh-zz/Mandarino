@@ -167,7 +167,8 @@ header {
 #classifica_container{
   width: 38%;
   float :right;
-  ul{
+  color: $textDarkColor;
+  ol{
     li{
       text-align: left;
       font-weight: bold;

@@ -108,12 +108,13 @@ header {
 
 #classifica_container {
   width: 38%;
-  float: right; }
-  #classifica_container ul li {
+  float: right;
+  color: #333333; }
+  #classifica_container ol li {
     text-align: left;
     font-weight: bold;
     font-size: 12pt; }
-    #classifica_container ul li img {
+    #classifica_container ol li img {
       border-radius: 50px;
       width: 60px; }
 
