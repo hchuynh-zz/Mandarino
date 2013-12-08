@@ -91,7 +91,7 @@ header {
 
 #mandarinoform, #mandarinofriends, #classifica_container {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #DDD;
   padding: 10px;
   border-radius: 20px;
@@ -113,10 +113,10 @@ header {
   #classifica_container ol li {
     text-align: left;
     font-weight: bold;
-    font-size: 12pt; }
-    #classifica_container ol li img {
-      border-radius: 50px;
-      width: 60px; }
+    font-size: 12pt;
+    margin: 2px img;
+      margin-border-radius: 50px;
+      margin-width: 50px; }
 
 .friends li {
   float: left;
