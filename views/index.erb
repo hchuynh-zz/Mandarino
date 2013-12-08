@@ -181,6 +181,7 @@
         <form id="theForm">
           <input type="number" name="howmany" id="howmany" maxlength="2" maxsize="2" min="0" max="99" placeholder="1" value="<%= @today %>">
           <input type="hidden" name="who" value="<%= @user['id'] %>" />
+          <input type="hidden" name="username" value="<%= @user['name'] %>" />
           <input id="mandarinosubmit" type="submit" value="SALVA"/>
         </form>
       </section>
@@ -205,6 +206,26 @@
           <% end %>
         </section>
     <% end %>
+
+    <section id="classifica_container" class="clearfix">
+      <% if @ladder.to_a.empty? %>
+            <p>La classifica non è ancora disponibile</p>
+      <% else %>
+        <div class="classifica">
+              <h3>I tuoi amici che stanno partecipando alla sfida</h3>
+              <ul class="ladder_items">
+                <% @ladder.each do |ladder_items| %>
+                  <li>
+                    <a href="#" onclick="window.open('http://www.facebook.com/<%= ladder_items['user_id'] %>')">
+                      <img src="https://graph.facebook.com/<%= ladder_items['user_id'] %>/picture?type=normal" alt="<%= ladder_items['name'] %>">
+                      <%= ladder_items['name'] %> - <span><%= ladder_items['total'] %></span>
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+      <% end %>
+    </section>
 
     <input id="stats_goal" type="hidden" value="<%= @goal %>" />
     <input id="stats_today" type="hidden" value="<%= @today %>" />

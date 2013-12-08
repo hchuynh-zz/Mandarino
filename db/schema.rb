@@ -11,6 +11,7 @@ ActiveRecord::Schema.define(:version => 20131205192556) do
 
   create_table "ladders", :force => true do |t|
     t.integer  "user_id", :null => false
+    t.string   "username", :null => false
     t.integer  "year",    :null => false
     t.integer  "total",    :null => false
     t.integer  "goal",    :null => false

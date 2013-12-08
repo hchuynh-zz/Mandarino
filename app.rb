@@ -98,6 +98,10 @@ helpers do
     return s
   end
 
+  def getLadder
+    ladder = Ladder.where(:year => Time.now.year).order("total DESC")
+  end
+
 end
 
 # the facebook session expired! reset ours and restart the process
@@ -132,10 +136,10 @@ get "/app" do
     @message = @stats["message"]
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
-    
     @total_big = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
   end
 
+  @ladder = getLadder
   
   if checkDate > 31
     erb :finish
@@ -178,6 +182,7 @@ end
 post '/more' do
   howmany = params[:howmany]
   userId = params[:who]
+  username = params[:username]
 
 
   if howmany.to_i >= 0
@@ -185,7 +190,7 @@ post '/more' do
     @total = Timetable.where(:user_id => userId, :year => Time.now.year).sum("today")
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).order("day DESC").first
     @oldtotal = 0
-    ladder = Ladder.where(:user_id => userId, :year => Time.now.year).order("year DESC").first
+    ladder = Ladder.where(:user_id => userId, :username => username, :year => Time.now.year).order("year DESC").first
 
     unless @total
       @total = 0
@@ -202,7 +207,7 @@ post '/more' do
       if ladder
         ladder.total = @oldtotal + @today
       else
-        ladder = Ladder.new(:user_id => userId, :year => Time.now.year, :total => @today, :goal => GOAL)
+        ladder = Ladder.new(:user_id => userId, :username => username, :year => Time.now.year, :total => @today, :goal => GOAL)
       end
 
       if ladder.save
