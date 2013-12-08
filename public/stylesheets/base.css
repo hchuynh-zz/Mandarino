@@ -114,9 +114,10 @@ header {
     text-align: left;
     font-weight: bold;
     font-size: 12pt;
-    margin: 2px img;
-      margin-border-radius: 50px;
-      margin-width: 50px; }
+    margin: 2px; }
+    #classifica_container ol li img {
+      border-radius: 50px;
+      width: 50px; }
 
 .friends li {
   float: left;
