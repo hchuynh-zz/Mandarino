@@ -212,17 +212,17 @@
             <p>La classifica non è ancora disponibile</p>
       <% else %>
         <div class="classifica">
-              <h3>I tuoi amici che stanno partecipando alla sfida</h3>
-              <ul class="ladder_items">
+              <h3>Classifica</h3>
+              <ol class="ladder_items">
                 <% @ladder.each do |ladder_items| %>
                   <li>
                     <a href="#" onclick="window.open('http://www.facebook.com/<%= ladder_items['user_id'] %>')">
                       <img src="https://graph.facebook.com/<%= ladder_items['user_id'] %>/picture?type=normal" alt="<%= ladder_items['name'] %>">
-                      <%= ladder_items['name'] %> - <span><%= ladder_items['total'] %></span>
+                      <%= ladder_items['name'] %>  <span class="ladderpoint"><%= ladder_items['total'] %></span>
                     </a>
                   </li>
                 <% end %>
-              </ul>
+              </ol>
             </div>
       <% end %>
     </section>

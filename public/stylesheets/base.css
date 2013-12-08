@@ -89,20 +89,26 @@ header {
       list-style: none;
       margin-left: 8px; }
 
-#mandarinoform, #mandarinofriends {
+#mandarinoform, #mandarinofriends, #classifica_container {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid #DDD;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px;
   margin-bottom: 10px; }
 
 #mandarinofriends {
   font-size: 14pt;
   font-weight: bold;
+  float: left;
+  width: 60%;
   color: #333333; }
   #mandarinofriends p {
     margin: 0; }
+
+#classifica_container {
+  width: 38%;
+  float: right; }
 
 .friends li {
   float: left;
