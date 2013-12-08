@@ -217,8 +217,8 @@
                 <% @ladder.each do |ladder_items| %>
                   <li>
                     <a href="#" onclick="window.open('http://www.facebook.com/<%= ladder_items['user_id'] %>')">
-                      <img src="https://graph.facebook.com/<%= ladder_items['user_id'] %>/picture?type=normal" alt="<%= ladder_items['name'] %>">
-                      <%= ladder_items['name'] %>  <span class="ladderpoint"><%= ladder_items['total'] %></span>
+                      <img src="https://graph.facebook.com/<%= ladder_items['user_id'] %>/picture?type=normal" alt="<%= ladder_items['username'] %>">
+                      <%= ladder_items['username'] %>  <span class="ladderpoint"><%= ladder_items['total'] %></span>
                     </a>
                   </li>
                 <% end %>

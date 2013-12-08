@@ -167,6 +167,17 @@ header {
 #classifica_container{
   width: 38%;
   float :right;
+  ul{
+    li{
+      text-align: left;
+      font-weight: bold;
+      font-size: 12pt;
+      img{
+        border-radius: 50px;
+        width: 60px;
+      }
+    }
+  }
 }
 
 .friends{

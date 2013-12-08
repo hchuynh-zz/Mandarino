@@ -109,6 +109,13 @@ header {
 #classifica_container {
   width: 38%;
   float: right; }
+  #classifica_container ul li {
+    text-align: left;
+    font-weight: bold;
+    font-size: 12pt; }
+    #classifica_container ul li img {
+      border-radius: 50px;
+      width: 60px; }
 
 .friends li {
   float: left;
