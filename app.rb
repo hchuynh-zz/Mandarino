@@ -170,8 +170,12 @@ end
 # Allows for direct oauth authentication
 
 get "/auth/facebook" do
-  session[:access_token] = nil
-   "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
+  #TODO CAZZO DI FIX
+  if access_token
+    session[:access_token] = nil
+    redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
+  else
+    "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
 end
 
