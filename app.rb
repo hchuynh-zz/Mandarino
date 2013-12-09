@@ -175,6 +175,7 @@ get "/auth/facebook" do
 end
 
 get '/auth/facebook/callback' do
+  :target => "_top"
   session[:access_token] = authenticator.get_access_token(params[:code])
   redirect '/app'
 end
