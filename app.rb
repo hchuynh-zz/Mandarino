@@ -170,7 +170,7 @@ get "/logout" do
 end
 
 get '/callback' do
-  session['access_token'] = session['oauth'].get_access_token(params[:code])
+  session['access_token'] = (Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], "#{request.base_url}/callback")).get_access_token(params[:code])
   redirect '/'
 end
 
