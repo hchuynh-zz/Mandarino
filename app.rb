@@ -10,7 +10,7 @@ GOAL = 275
 enable :sessions
 set :raise_errors, false
 set :show_exceptions, false
-
+use Rack::Session::Cookie, secret: 'PUT_A_GOOD_SECRET_IN_HERE'
 
 #configure do
   #DB = Sequel.connect( ENV["DATABASE_URL"] )
@@ -54,21 +54,6 @@ helpers do
 
   def url(path = '')
     "#{scheme}://#{host}#{path}"
-  end
-
-  def authenticator
-    @authenticator ||= Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], url("/auth/facebook/callback"))
-  end
-
-  # allow for javascript authentication
-  def access_token_from_cookie
-    authenticator.get_user_info_from_cookies(request.cookies)['access_token']
-  rescue => err
-    warn err.message
-  end
-
-  def access_token
-    session[:access_token] || access_token_from_cookie
   end
 
   # HH
@@ -123,7 +108,7 @@ get "/" do
   #redirect "/app"
 end
 
-get "/app" do
+get "/" do
   # Get base API Connection
   @graph  = Koala::Facebook::API.new(access_token)
 
@@ -135,7 +120,7 @@ get "/app" do
   @total = 0
   @today = 1
     
-  if access_token
+  if session['access_token']
     @user    = @graph.get_object("me")
     
     @friends = @graph.get_connections('me', 'friends')
@@ -146,8 +131,6 @@ get "/app" do
     # for other data you can always run fql
     @friends_using_app = @graph.fql_query("SELECT uid, name, is_app_user, pic_square FROM user WHERE uid in (SELECT uid2 FROM friend WHERE uid1 = me()) AND is_app_user = 1")
     @total = Timetable.where(:user_id => @user['id'], :year => Time.now.year).sum("today")
-
-
 
   end
 
@@ -170,27 +153,24 @@ get "/close" do
   "<body onload='window.close();'/>"
 end
 
-# Doesn't actually sign out permanently, but good for testing
-get "/preview/logged_out" do
-  session[:access_token] = nil
+# Allows for direct oauth authentication
+
+get "/login" do
+  session['oauth'] = Koala::Facebook::OAuth.new(ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], "#{request.base_url}/callback" )
+  # redirect to facebook to get your code
+  redirect session['oauth'].url_for_oauth_code()
+end
+
+get "/logout" do
+  session['oauth'] = nil
+  session['access_token'] = nil
   request.cookies.keys.each { |key, value| response.set_cookie(key, '') }
   redirect '/'
 end
 
-
-# Allows for direct oauth authentication
-
-get "/auth/facebook" do
-  #TODO CAZZO DI FIX
-
-  #session[:access_token] = nil
-  #redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
-    "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
-end
-
-get '/auth/facebook/callback' do
-  session[:access_token] = authenticator.get_access_token(params[:code])
-  redirect '/app'
+get '/callback' do
+  session['access_token'] = session['oauth'].get_access_token(params[:code])
+  redirect '/'
 end
 
 # HH
