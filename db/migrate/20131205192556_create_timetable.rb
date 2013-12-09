@@ -1,7 +1,7 @@
 class CreateTimetable < ActiveRecord::Migration
   def up
     create_table :timetables do |t|
-      t.integer :user_id
+      t.integer :user_id, :limit => 8
       t.integer :day
       t.integer :year
       t.integer :today

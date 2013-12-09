@@ -158,7 +158,7 @@
             function (response) {
               // If response is null the user canceled the dialog
               if (response != null) {
-                logResponse(response);
+                location.reload();
               }
             }
           );

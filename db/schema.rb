@@ -1,7 +1,7 @@
 ActiveRecord::Schema.define(:version => 20131205192556) do
 
   create_table "timetables", :force => true do |t|
-    t.integer  "user_id",    :null => false
+    t.integer  "user_id", :limit => 8
     t.integer  "day",    :null => false
     t.integer  "year",    :null => false
     t.integer  "today",    :null => false
@@ -10,7 +10,7 @@ ActiveRecord::Schema.define(:version => 20131205192556) do
   end
 
   create_table "ladders", :force => true do |t|
-    t.integer  "user_id", :null => false
+    t.integer  "user_id",  :limit => 8
     t.string   "username", :null => false
     t.integer  "year",    :null => false
     t.integer  "total",    :null => false

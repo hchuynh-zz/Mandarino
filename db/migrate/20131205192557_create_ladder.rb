@@ -1,7 +1,7 @@
 class CreateLadder < ActiveRecord::Migration
   def up
     create_table :ladders do |t|
-      t.integer :user_id
+      t.integer :user_id, :limit => 8
       t.string  :username
       t.integer :year
       t.integer :total

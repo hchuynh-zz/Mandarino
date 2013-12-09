@@ -117,6 +117,7 @@ get "/" do
   #else
   #   "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #end
+
   session[:access_token] = nil
   redirect "/auth/facebook"
   #redirect "/app"
@@ -181,15 +182,10 @@ end
 
 get "/auth/facebook" do
   #TODO CAZZO DI FIX
-  if access_token
-    @graph  = Koala::Facebook::API.new(access_token)
-    if @graph.get_object("me")
-      session[:access_token] = nil
-      redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
-    end
-  else
+
+  #session[:access_token] = nil
+  #redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
     "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
-  end
 end
 
 get '/auth/facebook/callback' do
@@ -208,7 +204,7 @@ post '/more' do
     @today = howmany.to_i
     @total = Timetable.where(:user_id => userId, :year => Time.now.year).sum("today")
     timetable = Timetable.where(:user_id => userId, :day => Time.now.day, :year => Time.now.year).order("day DESC").first
-    @oldtotal = 0
+    @oldtotal = @total
     ladder = Ladder.where(:user_id => userId, :username => username, :year => Time.now.year).order("year DESC").first
 
     unless @total
