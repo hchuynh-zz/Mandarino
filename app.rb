@@ -181,13 +181,15 @@ end
 
 get "/auth/facebook" do
   #TODO CAZZO DI FIX
-  #if access_token
-   # session[:access_token] = nil
-   # redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
-  #else
+  if access_token
+    @graph  = Koala::Facebook::API.new(access_token)
+    if @graph.get_object("me")
+      session[:access_token] = nil
+      redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
+    end
+  else
     "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
-  #redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
-  #end
+  end
 end
 
 get '/auth/facebook/callback' do
