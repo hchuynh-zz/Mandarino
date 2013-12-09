@@ -117,9 +117,9 @@ get "/" do
   #else
   #   "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #end
-  #session[:access_token] = nil
-  #redirect "/auth/facebook"
-  redirect "/app"
+  session[:access_token] = nil
+  redirect "/auth/facebook"
+  #redirect "/app"
 end
 
 get "/app" do
