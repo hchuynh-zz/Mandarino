@@ -171,7 +171,7 @@ end
 
 get "/auth/facebook" do
   session[:access_token] = nil
-   "<script>window.top.location = '<%= authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE) %>'</script>"
+   "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
 end
 
