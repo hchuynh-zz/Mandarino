@@ -117,9 +117,9 @@ get "/" do
   #else
   #   "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #end
-  session[:access_token] = nil
-  redirect "/auth/facebook"
-  #redirect "/app"
+  #session[:access_token] = nil
+  #redirect "/auth/facebook"
+  redirect "/app"
 end
 
 get "/app" do
@@ -136,7 +136,11 @@ get "/app" do
     
   if access_token
     @user    = @graph.get_object("me")
-    
+    if !@user
+      session[:access_token] = nil
+      redirect "/auth/facebook"
+    end
+
     @friends = @graph.get_connections('me', 'friends')
 
     @stats = getMandarini(@user)
