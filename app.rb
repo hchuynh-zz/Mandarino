@@ -177,6 +177,7 @@ get "/auth/facebook" do
   else
     "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
+  end
 end
 
 get '/auth/facebook/callback' do
