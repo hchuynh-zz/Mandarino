@@ -34,9 +34,9 @@ end
 
 before do
   # HTTPS redirect
-  if settings.environment == :production && request.scheme != 'https'
-    redirect "https://#{request.env['HTTP_HOST']}"
-  end
+  #if settings.environment == :production && request.scheme != 'https'
+   # redirect "https://#{request.env['HTTP_HOST']}"
+  #end
 end
 
 helpers do
@@ -111,14 +111,15 @@ error(Koala::Facebook::APIError) do
 end
 
 get "/" do
-  if access_token
-    session[:access_token] = nil
-    redirect "/auth/facebook"
-  else
-     "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
-  end
-  #session[:access_token] = nil
-  #redirect "/auth/facebook"
+  #if access_token
+  #  session[:access_token] = nil
+  #  redirect "/auth/facebook"
+  #else
+  #   "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
+  #end
+  session[:access_token] = nil
+  redirect "/auth/facebook"
+  #redirect "/app"
 end
 
 get "/app" do
@@ -135,6 +136,7 @@ get "/app" do
     
   if access_token
     @user    = @graph.get_object("me")
+    
     @friends = @graph.get_connections('me', 'friends')
 
     @stats = getMandarini(@user)
@@ -178,17 +180,18 @@ end
 get "/auth/facebook" do
   #TODO CAZZO DI FIX
   #if access_token
-    session[:access_token] = nil
-    redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
+   # session[:access_token] = nil
+   # redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
   #else
-   # "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
+    "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #redirect authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)
   #end
 end
 
 get '/auth/facebook/callback' do
   session[:access_token] = authenticator.get_access_token(params[:code])
-  redirect '/app'
+  #redirect '/app'
+  redirect 'https://apps.facebook.com/mandarino/'
 end
 
 # HH
