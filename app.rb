@@ -95,7 +95,7 @@ error(Koala::Facebook::APIError) do
   redirect "/auth/facebook"
 end
 
-get "/" do
+#get "/" do
   #if access_token
   #  session[:access_token] = nil
   #  redirect "/auth/facebook"
@@ -103,10 +103,10 @@ get "/" do
   #   "<script>window.top.location = '"+authenticator.url_for_oauth_code(:permissions => FACEBOOK_SCOPE)+"'</script>"
   #end
 
-  session[:access_token] = nil
-  redirect "/auth/facebook"
+  #session[:access_token] = nil
+ # redirect "/auth/facebook"
   #redirect "/app"
-end
+#end
 
 get "/" do
   # Get base API Connection
