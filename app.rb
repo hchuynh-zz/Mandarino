@@ -99,7 +99,7 @@ helpers do
   end
 
   def getLadder
-    ladder = Ladder.where(:year => Time.now.year).order("total DESC")
+    ladder = Ladder.where(:year => Time.now.year).order("total DESC").first(10)
   end
 
 end
